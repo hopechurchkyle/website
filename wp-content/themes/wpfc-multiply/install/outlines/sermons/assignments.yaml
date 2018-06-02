@@ -1,0 +1,8 @@
+context: {  }
+menu: {  }
+post:
+  wpfc_sermon:
+    is_singular: true
+    is_archive: true
+taxonomy: {  }
+archive: {  }

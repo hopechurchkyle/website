@@ -1,0 +1,12 @@
+#g-sidebar {
+    position: relative;
+    color: $sidebar-color;
+    background: $sidebar-background;
+    @if $sidebar-background-image {
+        background-image: url($sidebar-background-image);
+        background-size: unquote($sidebar-background-size);
+        background-repeat: unquote($sidebar-background-repeat);
+        background-position: unquote($sidebar-background-position);
+        background-attachment: unquote($sidebar-background-attachment);
+    }
+}

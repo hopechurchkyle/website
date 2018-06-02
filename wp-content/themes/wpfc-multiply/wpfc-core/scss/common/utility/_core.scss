@@ -1,0 +1,124 @@
+.is-menu {
+    > .g-container > .g-grid,
+    > .g-grid {
+        position: relative;
+    }
+}
+
+.align-items {
+    > .g-container > .g-grid,
+    > .g-grid {
+        @include align-items(center);
+    }
+}
+
+.align-self {
+    @include align-self(center);
+}
+
+.center-vertical {
+    @include display(flex);
+    @include align-items(center);
+}
+
+.shadow {
+    box-shadow: $base-shadow;
+}
+
+.content-small {
+    .g-content {
+        padding: 0 $content-padding;
+        margin: .375rem $content-margin;
+        font-size: $core-font-size - .125;
+    }
+}
+
+.font-size-small {
+    font-size: $core-font-size - .125;
+}
+
+.z-index {
+    z-index: 10;
+}
+
+.border {
+    &-top {
+        border-top: 1px solid $base-border-color;
+    }
+    &-bottom {
+        border-bottom: 1px solid $base-border-color;
+    }
+}
+
+.wpfc-no-space {
+    > .g-content {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.wpfc-no-space-tb {
+    > .g-content {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.wpfc-no-space-lr {
+    > .g-content {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.wpfc-negative-section {
+    > .elementor-container > .elementor-row {
+        margin: -($content-margin + $content-padding);
+    }
+}
+
+.wpfc-width-auto {
+    > .elementor-container > .elementor-row {
+        width: auto;
+    }
+}
+
+.wpfc-global-ns {
+    section > .elementor-container > .elementor-row {
+        margin: -($content-margin + $content-padding);
+        width: auto;
+    }
+}
+
+.wpfc-grid-align {
+    > .g-grid {
+        margin: 0 -($content-margin + $content-padding);
+    }
+}
+
+$element-space: padding, margin;
+$direction: top, right, bottom, left;
+$value: 1, 2, 3, 4, 5, 6, 8, 10;
+
+@each $el in $element-space {
+    @each $dir in $direction {
+        .#{$el}-#{$dir} {
+            #{$el}-#{$dir}: 1.5rem;
+        }
+        @each $value in $value {
+            .#{$el}-#{$dir}-#{$value} {
+                #{$el}-#{$dir}: $value + rem;
+            }
+        }
+    }
+}
+
+@include breakpoint(mobile-only) {
+    .center-mobile {
+        text-align: center !important;
+    }
+}

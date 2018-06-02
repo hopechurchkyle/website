@@ -1,0 +1,8 @@
+<root>
+    <params name="filter" label="Filter">
+        <param name="categories" label="Category" type="ecwidcategories" default="0"/>
+        <param name="tax" label="Tax" type="number" default="0" style="width:50px;">
+            <unit value="%">%</unit>
+        </param>
+    </params>
+</root>

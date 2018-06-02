@@ -1,0 +1,12 @@
+#g-feature {
+    position: relative;
+    color: $feature-color;
+    background: $feature-background;
+    @if $feature-background-image {
+        background-image: url($feature-background-image);
+        background-size: unquote($feature-background-size);
+        background-repeat: unquote($feature-background-repeat);
+        background-position: unquote($feature-background-position);
+        background-attachment: unquote($feature-background-attachment);
+    }
+}

@@ -1,0 +1,47 @@
+<root>
+    <params name="filter" label="Filter">
+        <param type="group" label="Filter">
+            <param name="categories" label="Category" type="eventsmanagercategories" default="0" multiple="1"
+                   size="10"/>
+            <param name="tags" label="Tags" type="eventsmanagertags" default="0" multiple="1" size="10"/>
+            <param name="locations" label="Location" type="eventsmanagerlocations" default="0" multiple="1"
+                   size="10"/>
+        </param>
+        <param type="group" label="Limit">
+            <param name="started" label="Started" type="filter" default="0"/>
+            <param name="ended" label="Ended" type="filter" default="-1"/>
+            <param name="locationtown" label="Location town" type="text" default=""/>
+            <param name="locationstate" label="Location state" type="text" default=""/>
+        </param>
+        <param type="group" label="Multisite">
+			<param name="multisite" label="Get all multisite events" type="onoff" default="0"/>
+			<param name="multiorder" label="Order result" type="onoff" default="0"/>
+			<param name="slidecount" label="Slide count per site" type="onoff" default="1"/>
+        </param>
+        <param type="group" label="All day events">
+            <param name="custom_start_time" label="Custom start time text" type="onoff" default="0"/>
+            <param name="start_time" label="Start time text" type="text" default=""/>
+            <param name="custom_end_date" label="Custom end date text" type="onoff" default="0"/>
+            <param name="end_date" label="End date text" type="text" default=""/>
+            <param name="custom_end_time" label="Custom end time text" type="onoff" default="0"/>
+            <param name="end_time" label="End time text" type="text" default=""/>
+        </param>
+    </params>
+    <params name="order" label="Order by">
+        <param name="order" type="mixed" label="Order" default="_event_start_date|*|asc">
+            <param type="list" label="Field" translateable="1">
+                <option value="event_start_date">Event start date</option>
+                <option value="event_end_date">Event end date</option>
+                <option value="event_rsvp_date">Event rsvp date</option>
+                <option value="event_date_created">Event creation date</option>
+                <option value="event_date_modified">Event modification date</option>
+                <option value="ticket_price">Ticket price</option>
+                <option value="post_title">Title</option>
+            </param>
+            <param type="radio" label="order" translateable="1">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </param>
+        </param>
+    </params>
+</root>

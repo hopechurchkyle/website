@@ -1,0 +1,40 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+    
+    {# Shortcuts #}
+    {% set scope = particle %}
+    {% set grid = particle.grid %}
+
+    {# Variables #}
+    {% set size = 'size-' ~ (100 / grid.columns)|number_format(1, '-')|replace({"-0" : ""}) %}
+    {% set tablet_size = 'wpfc-' ~ grid.tablet.columns %}
+    {% set phone_size = 'wpfc-' ~ grid.phone.columns %}
+    {% set class_block = [size, tablet_size, phone_size]|join(' ') %}
+
+    {# Main Content #}
+    <div class="{{ id }}">
+        {# Particle Header #}
+        {% include '@particles/wpfc-assets/common/views/partials/particle-header.html.twig' %}
+
+        {% if particle.items %}
+            <ul class="g-grid">
+                {% for item in particle.items %}
+                    <li class="g-block {{ class_block }}">
+                        <div class="wpfc-inner">
+                            {% if item.link and item.title.text %}
+                                <a href="{{ item.link }}" target="{{ item.target }}">
+                                    {% if item.icon.icon %}<i class="{{ item.icon.icon }}"></i>{% endif %}
+                                    {% if item.title.text %}<span class="wpfc-title">{{ item.title.text|raw }}</span>{% endif %}
+                                </a>
+                            {% else %}
+                                {% if item.icon.icon %}<i class="{{ item.icon.icon }}"></i>{% endif %}
+                                {% if item.title.text %}<span class="wpfc-title">{{ item.title.text|raw }}</span>{% endif %}
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}

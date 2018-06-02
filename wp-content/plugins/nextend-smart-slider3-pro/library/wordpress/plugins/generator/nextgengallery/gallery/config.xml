@@ -1,0 +1,5 @@
+<root>
+    <params name="Filter" label="Filter">
+        <param name="gallery" label="Source gallery" type="nggalleries" default=""/>
+    </params>
+</root>

@@ -1,0 +1,35 @@
+.pagination-links {
+    .page-numbers {
+        display: inline-block;
+        padding: .25rem .75rem;
+        color: $base-color;
+        background: $white;
+        border: 1px solid $base-border-color;
+        &.current {
+            color: $white;
+            background: $accent-color-1;
+            border-color: $accent-color-1;
+        }
+        &.dots {
+            border: 0;
+        }
+    }
+    a.page-numbers:hover {
+        color: $white;
+        background: $base-color;
+    }
+}
+
+.pagination {
+    margin: 3rem 0 0;
+}
+
+.pagination-counter,
+.pagination-post,
+.pagination-comments {
+    font-size: $core-font-size - .125;
+}
+
+.pagination-post {
+    text-align: center;
+}

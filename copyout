@@ -1,0 +1,11 @@
+#!/bin/bash
+
+rm -rf wp-config.php
+rm -rf wp-content
+rm -rf wp-images
+rm -rf wp-includes/languages
+
+sudo docker cp hope:/var/www/html/wp-config.php .
+sudo docker cp hope:/var/www/html/wp-content wp-content
+sudo docker cp hope:/var/www/html/wp-images wp-images
+sudo docker cp hope:/var/www/html/wp-includes/languages wp-includes/languages

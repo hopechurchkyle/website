@@ -1,0 +1,32 @@
+.wpfc-color-base {
+    color: $base-color;
+}
+
+.wpfc-color1 {
+    color: $accent-color-1;
+}
+
+.wpfc-color2 {
+    color: $accent-color-2;
+}
+
+.wpfc-heading-color-base {
+    h1, h2, h3, h4, h5, h6,
+    &.elementor-widget-heading .elementor-heading-title {
+        color: $base-color;
+    }
+}
+
+.wpfc-heading-color1 {
+    h1, h2, h3, h4, h5, h6,
+    &.elementor-widget-heading .elementor-heading-title {
+        color: $accent-color-1;
+    }
+}
+
+.wpfc-heading-color2 {
+    h1, h2, h3, h4, h5, h6,
+    &.elementor-widget-heading .elementor-heading-title {
+        color: $accent-color-2;
+    }
+}

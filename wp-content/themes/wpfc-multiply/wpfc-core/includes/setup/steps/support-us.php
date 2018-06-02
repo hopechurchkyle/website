@@ -1,0 +1,4 @@
+<p>Help us make <?php echo esc_html( wp_get_theme()->get( 'Name' ) ); ?> Theme even better by giving us a rating or follow us on social media and keep up with latest tips, promotions and product news.</p>
+<a class="button" href="https://www.trustpilot.com/evaluate/wpforchurch.com" target="_blank">Leave a Positive Rating</a>
+<a class="button button-primary" style="background-color:#3b5998" href="https://www.facebook.com/wpforchurch/" target="_blank">Follow us on Facebook</a>
+<a class="button button-primary" style="background-color:#0084b4" href="https://twitter.com/wpforchurch" target="_blank">Follow us on Twitter</a>

@@ -1,0 +1,42 @@
+{% set sermon_meta_date_enabled = sermon_meta_date_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-date.enabled', '1')  %}
+{% set entry_title_enabled = entry_title_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-title.enabled', '1') %}
+{% set sermon_meta_preacher_enabled = sermon_meta_preacher_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-preacher.enabled', '1') %}
+{% set sermon_meta_series_enabled = sermon_meta_series_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-series.enabled', '1') %}
+{% set sermon_meta_book_enabled = sermon_meta_book_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-book.enabled', '1') %}
+{% set sermon_meta_service_enabled = sermon_meta_service_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-service.enabled', '1') %}
+{% set sermon_meta_topics_enabled = sermon_meta_topics_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-topics.enabled', '1') %}
+
+<article class="{{ post.class }}">
+
+    {% block content %}
+
+        {# Begin Entry Wrapper #}
+        <div class="entry-wrapper">
+            {# Begin Featured Image #}
+            {% include 'platform/partials/featured-image.html.twig' %}
+
+            {# Header #}
+            {% if sermon_meta_date_enabled 
+               or entry_title_enabled 
+               or sermon_meta_preacher_enabled 
+               or sermon_meta_series_enabled 
+               or sermon_meta_book_enabled 
+               or sermon_meta_service_enabled 
+               or sermon_meta_topics_enabled %}
+                <div class="entry-header">
+                    {% include 'wpfc-sermon/meta/date.html.twig' %}
+                    {% include 'platform/partials/entry-title.html.twig' %}
+                    {% include 'wpfc-sermon/partials/entry-meta.html.twig' %}
+                </div>
+            {% endif %}
+
+            {# Content #}
+            {% include 'wpfc-sermon/partials/paged-content-pass.html.twig' %}
+        </div>
+
+        {# Begin Entry Author #}
+        {% include 'wpfc-sermon/partials/entry-preacher.html.twig' %}
+
+    {% endblock %}
+    
+</article>

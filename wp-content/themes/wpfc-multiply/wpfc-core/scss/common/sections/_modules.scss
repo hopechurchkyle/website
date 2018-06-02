@@ -1,0 +1,12 @@
+#g-modules {
+    position: relative;
+    color: $modules-color;
+    background: $modules-background;
+    @if $modules-background-image {
+        background-image: url($modules-background-image);
+        background-size: unquote($modules-background-size);
+        background-repeat: unquote($modules-background-repeat);
+        background-position: unquote($modules-background-position);
+        background-attachment: unquote($modules-background-attachment);
+    }
+}

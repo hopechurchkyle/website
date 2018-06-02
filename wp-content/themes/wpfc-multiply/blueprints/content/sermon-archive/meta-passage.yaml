@@ -1,0 +1,21 @@
+name: Passage
+description:
+type: sermon-archive
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Display
+      description:
+      default: 1
+
+    icon:
+      type: input.icon 
+      label: Icon
+    
+    prefix:
+      type: input.text 
+      label: Prefix
+      default: "Passage:"

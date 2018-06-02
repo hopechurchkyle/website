@@ -1,0 +1,16 @@
+#g-navigation {    
+    position: relative;
+    color: $navigation-color;
+    background: $navigation-background;
+    @if $navigation-background-image {
+        background-image: url($navigation-background-image);
+        background-size: unquote($navigation-background-size);
+        background-repeat: unquote($navigation-background-repeat);
+        background-position: unquote($navigation-background-position);
+        background-attachment: unquote($navigation-background-attachment);
+    }
+    @include breakpoint(mobile-only) {
+        color: $navigation-mobile-color;
+        background: $navigation-mobile-background;
+    }
+}

@@ -1,0 +1,24 @@
+{% set meta_scope = 'meta-book' %}
+{% set sermon_meta_book = sermon_meta_book ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.enabled', '1')  %}
+{% set sermon_meta_book_link = sermon_meta_book_link ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.link', '1') %}
+
+{% block sermon_meta_book %}
+    {% if sermon_meta_book and post.terms('wpfc_bible_book') %}
+        <div class="meta-book meta-item">
+            {% block sermon_meta_book_content %}
+                {% include 'platform/meta/icon.html.twig' %}
+                {% include 'platform/meta/prefix.html.twig' %}
+                
+                <span class="book">
+                    {% for book in post.terms('wpfc_bible_book') %}
+                        {% if sermon_meta_book_link %}
+                            <a href="{{ book.link }}" title="{{ book.title }}" class="single-book">{{ book.title }}</a>
+                        {% else %}
+                            <span class="single-book">{{ book.title }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

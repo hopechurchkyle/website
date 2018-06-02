@@ -1,0 +1,17 @@
+{% set meta_author_enabled = meta_author_enabled ?? scope.meta.author.enabled %}
+{% set meta_categories_enabled = meta_categories_enabled ?? scope.meta.categories.enabled %}
+{% set meta_date_enabled = meta_date_enabled ?? scope.meta.date.enabled %}
+{% set meta_comments_enabled = meta_comments_enabled ?? scope.meta.comments.enabled %}
+
+{% block entry_meta %}
+    {% if meta_author_enabled or meta_date_enabled or meta_comments_enabled %}
+        <div class="wpfc-entry-meta">
+            {% block entry_meta_content %}
+                {% include '@particles/wpfc-assets/wordpress/platform/views/meta/author.html.twig' %}
+                {% include '@particles/wpfc-assets/wordpress/platform/views/meta/categories.html.twig' %}
+                {% include '@particles/wpfc-assets/wordpress/platform/views/meta/date.html.twig' %}
+                {% include '@particles/wpfc-assets/common/views/meta/comments-type.html.twig' %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

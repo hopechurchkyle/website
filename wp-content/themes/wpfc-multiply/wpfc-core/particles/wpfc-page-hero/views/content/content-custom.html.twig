@@ -1,0 +1,29 @@
+{% block content %}
+
+    {% set background_image = 'background-image: url(' ~ scope.image.select ~ ');' %}
+    {% set background_size = scope.image.background.size ? 'background-size:' ~ scope.image.background.size ~ ';' : '' %}
+    {% set background_repeat = scope.image.background.repeat ? 'background-repeat:' ~ scope.image.background.repeat ~ ';' : '' %}
+    {% set background_position = scope.image.background.position ? 'background-position:' ~ scope.image.background.position ~ ';' : '' %}
+    {% set background_inline_style = [background_image, background_size, background_repeat, background_position]|join('') %}
+    {% set background_overlay_enabled = background_overlay_enabled ?? scope.image.overlay.enabled %}
+    
+    <div class="wpfc-item" style="{{ item_inline_style }}">
+
+        {# Featured Image #}
+        {% if scope.image.select %}
+            <div class="wpfc-post-thumbnail">
+                <div class="wpfc-background-image" style="{{ background_inline_style }}"></div>
+                {% if scope.image.overlay.enabled %}<div class="wpfc-background-overlay"></div>{% endif %}
+            </div>
+        {% endif %}
+            
+        {# Content Wrapper #}
+        <div class="wpfc-inner-wrapper {{- item_align_class }} {{- class_inner_wrapper }}" style="{{ wrapper_inline_style }}">
+            <div class="wpfc-inner {{- inner_class }}" style="{{ inner_style }}">
+                <h2 class="wpfc-entry-title">{{ scope.content.title|raw }}</h2>
+                <div class="wpfc-entry-description">{{ scope.content.description|raw }}</div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

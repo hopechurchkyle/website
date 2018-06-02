@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo docker rm hope
+sudo docker run --network host -d --name hope -e WORDPRESS_DB_HOST=127.0.0.1 -e WORDPRESS_DB_PASSWORD= -e WORDPRESS_DB_NAME=hopechurch hope
+

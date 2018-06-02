@@ -1,0 +1,13 @@
+{% set sermon_entry_bulletin_enabled = sermon_entry_bulletin_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-bulletin.enabled', '1') %}
+{% set sermon_entry_bulletin_icon = sermon_entry_bulletin_icon ?? gantry.config.get('content.' ~ scope ~ '.entry-bulletin.icon', 'fa fa-file-text-o') %}
+
+{% block sermon_entry_bulletin %}
+    {% if sermon_entry_bulletin_enabled and fn('get_wpfc_sermon_meta', 'sermon_bulletin') %}
+        <div class="entry-bulletin">
+            <a href="{{ fn('get_wpfc_sermon_meta', 'sermon_bulletin') }}" target="_blank">
+                <i class="{{ sermon_entry_bulletin_icon }}"></i>
+                <div>Bulletin</div>
+            </a>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+name: General
+description:
+type: sermon-archive
+
+form:
+  fields:
+
+    content:
+      type: select.select
+      label: Style
+      default: content
+      options:
+        content: Grid
+        content2: List

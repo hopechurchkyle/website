@@ -1,0 +1,191 @@
+.button {
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 0;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;   
+    margin: 0 .25rem .25rem 0;
+    padding: $content-padding $section-padding;
+    color: $white;
+    background: $accent-color-1;
+    @include appearance(none);
+    @include transition(.2s);
+
+    [dir="rtl"] & {
+        margin: 0 0 .25rem .25rem;
+    }
+
+    &:hover,
+    &:focus {
+        color: $white;
+        background: darken($accent-color-1, 16%);
+    }
+
+    // Colors
+    &.color2 {
+        color: $white;
+        background: $accent-color-2;
+        
+        &:hover,
+        &:focus {
+            color: $white;
+            background: darken($accent-color-2, 16%);
+        }
+    }
+
+    &.color-base {
+        color: $white;
+        background: $base-color;
+
+        &:hover,
+        &:focus {
+            color: $white;
+            background: darken($base-color, 16%);
+        }
+    }
+
+    &.white {
+        color: $base-color;
+        background: $white;
+
+        &:hover,
+        &:focus {
+            color: $base-color;
+            background: darken($white, 16%);
+        }
+    }
+
+    // Hollow
+    &.hollow {
+        color: $accent-color-1;
+        background: transparent;
+        border: 1px solid $accent-color-1;
+
+        &:hover,
+        &:focus {
+            color: darken($accent-color-1, 16%);
+            background: transparent;
+            border-color: darken($accent-color-1, 16%);
+        }
+
+        // Hollow Colors
+        &.color2 {
+            color: $accent-color-2;
+            border-color: $accent-color-2;
+
+            &:hover,
+            &:focus {
+                color: darken($accent-color-2, 16%);
+                border-color: darken($accent-color-2, 16%);
+            }
+        }
+
+        &.color-base {
+            color: $base-color;
+            border-color: $base-color;
+
+            &:hover,
+            &:focus {
+                color: darken($base-color, 16%);
+                border-color: darken($base-color, 16%);
+            }
+        }
+
+        &.white {
+            color: $white;
+            border-color: $white;
+
+            &:hover,
+            &:focus {
+                color: darken($white, 16%);
+                border-color: darken($white, 16%);
+            }
+        }
+    }
+
+    &.text {
+        color: $accent-color-1;
+        background: transparent;
+
+        &:hover,
+        &:focus {
+            color: darken($accent-color-1, 16%);
+            background: transparent;
+        }
+
+        // Colors
+        &.color2 {
+            color: $accent-color-2;
+            
+            &:hover,
+            &:focus {
+                color: darken($accent-color-2, 16%);
+            }
+        }
+
+        &.color-base {
+            color: $base-color;
+
+            &:hover,
+            &:focus {
+                color: darken($base-color, 16%);
+            }
+        }
+
+        &.white {
+            color: $white;
+
+            &:hover,
+            &:focus {
+                color: darken($white, 16%);
+            }
+        }
+
+        &.no-space {
+            padding: $content-padding $section-padding $content-padding 0;
+            [dir="rtl"] & {
+                padding: $content-padding 0 $section-padding $content-padding;
+            } 
+        }
+    }
+    
+    // Sizes
+    &.small {
+        font-size: $core-font-size - .125;
+        padding: $content-margin $content-padding;
+    }
+
+    &.large {
+        font-size: $core-font-size + .125;
+        padding: 1.25rem 2rem;
+        
+        // Min Width
+        &.fw {
+            min-width: 16rem;
+        }
+    }
+    
+    // Min Width
+    &.fw {
+        min-width: 10rem;
+    }
+
+    // Expanded
+    &.expanded {
+        display: block;
+        width: 100%;
+        margin: 0 0 .25rem 0;
+        
+        [dir="rtl"] & {
+            margin: 0 0 .25rem 0;
+        }
+    }
+
+    // Rounded
+    &.rounded {
+        border-radius: 10rem;
+    }
+}

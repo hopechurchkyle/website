@@ -1,0 +1,11 @@
+{% set readmore_enabled = readmore_enabled ?? scope.readmore.enabled %}
+{% set readmore_label = readmore_label ?? scope.readmore.label %}
+{% set readmore_class = readmore_class ?? scope.readmore.class %}
+
+{% block readmore %}
+    {% if readmore_enabled %}
+        {% block readmore_content %}
+            <a href="{{ post.link }}" class="wpfc-readmore {{ readmore_class }}">{{ readmore_label }}</a>
+        {% endblock %}
+    {% endif %}
+{% endblock %}

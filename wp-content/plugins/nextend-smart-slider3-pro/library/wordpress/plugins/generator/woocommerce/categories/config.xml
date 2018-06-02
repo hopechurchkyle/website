@@ -1,0 +1,15 @@
+<root>
+    <params name="WooCommerce" label="Filter">
+        <param name="categories" label="Parent category" type="woocommercecategories" default="0"/>
+        <param name="level" type="mixed" label="Submenu limit" default="0">
+            <param type="list" label="Level">
+                <option value="0">No limit</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </param>
+        </param>
+    </params>
+</root>

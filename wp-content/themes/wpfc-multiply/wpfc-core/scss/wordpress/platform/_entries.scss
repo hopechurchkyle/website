@@ -1,0 +1,38 @@
+.platform-wordpress {
+    .entries {
+        margin: (-$section-padding) (-$content-margin);
+
+        .g-flushed & {
+            margin: 0;
+        }
+
+        .g-content {
+            margin: $section-padding $content-margin;
+            padding: 0;
+        }
+
+        .entry-title {
+            a {
+                color: inherit;
+                &:hover {
+                    color: $accent-color-1;
+                }
+            }
+        }
+
+        .post-thumbnail,
+        .entry-title,
+        .entry-meta,
+        .entry-content p {
+            margin: 0 0 .75rem 0;
+        }
+
+        .entry-content p:last-child {
+            margin: 0;
+        }
+
+        .readmore {
+            margin: .75rem 0 0;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{% set meta_scope = 'meta-author' %}
+{% set meta_author_enabled = meta_author_enabled ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.enabled', '1') %}
+{% set meta_author_link = meta_author_link ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.link', '1') %}
+
+{% block meta_author %}
+    {% if meta_author_enabled %}
+        <div class="meta-author meta-item">
+            {% block meta_author_content %}
+                {% include 'platform/meta/icon.html.twig' %}
+                {% include 'platform/meta/prefix.html.twig' %}
+
+                {% for author in post.authors %}
+                    {% if meta_author_link %}
+                        <a href="{{ author.link }}" title="{{ author.name }}" class="author">{{ author.name }}</a>
+                    {% else %}
+                        <span class="author">{{ author.name }}</span>
+                    {% endif %}
+                {% endfor %}
+
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

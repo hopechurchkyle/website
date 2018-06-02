@@ -1,0 +1,38 @@
+.wpfc-elementor-posts.wpfc-style3 .wpfc-block:first-child {
+    flex: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.wpfc-elementor-posts.wpfc-style3 .wpfc-block:first-child .wpfc-block-content {
+    display: flex;
+}
+
+.wpfc-elementor-posts.wpfc-style3 .wpfc-block:first-child .wpfc-image-wrapper {
+    flex: 0 30%;
+}
+
+.wpfc-elementor-posts.wpfc-style3 .wpfc-block:first-child .wpfc-wrapper {
+    flex: 1;
+    padding: 2.5rem !important;
+    background: #e4f2ff;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.wpfc-elementor-posts.wpfc-style3 .wpfc-block:not(:first-child) .wpfc-content {
+    display: none;
+}
+
+.wpfc-elementor-posts.wpfc-style3 .wpfc-title {
+    margin: 0;
+}
+
+.wpfc-elementor-posts.wpfc-style3 .wpfc-date {
+    margin: 0 0 .375rem 0;
+}
+
+.wpfc-elementor-posts.wpfc-style3 .wpfc-content {
+    margin-top: .75rem;
+}

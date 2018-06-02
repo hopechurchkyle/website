@@ -1,0 +1,42 @@
+{% set page_header_enabled = gantry.config.get('content.' ~ scope ~ '.page-header.enabled', '1') %}
+
+{% set page_header_title_enabled = gantry.config.get('content.' ~ scope ~ '.page-header.title.enabled', '1')  %}
+{% set page_header_title_text = gantry.config.get('content.' ~ scope ~ '.page-header.title.text', '') %}
+{% set page_header_title_tag = gantry.config.get('content.' ~ scope ~ '.page-header.title.tag', 'h2') %}
+{% set page_header_has_title = page_header_title_enabled and (page_header_title_text or title) ? 'true' : '' %}
+
+{% set page_header_description_enabled =  gantry.config.get('content.' ~ scope ~ '.page-header.description.enabled', '1') %}
+{% set page_header_description_text = gantry.config.get('content.' ~ scope ~ '.page-header.description.text', '') %}
+{% set page_header_has_description = page_header_description_enabled and (page_header_description_text or description) ? 'true' : '' %}
+
+{% block page_header %}
+    {% if page_header_enabled and (page_header_has_title or page_header_has_description) %}
+        <div class="page-header">
+            {% block page_header_content %}
+                
+                {# Begin Page Title #}
+                {% if page_header_has_title %}
+                    <{{ page_header_title_tag }} class="page-header-title">
+                        {% if page_header_title_text %}
+                            <span>{{ page_header_title_text }}</span>
+                        {% else %}
+                            <span>{{ title }}</span>
+                        {% endif %}
+                    </{{ page_header_title_tag }}>
+                {% endif %}
+
+                {# Begin Page Description #}
+                {% if page_header_has_description %}
+                    <div class="page-header-description">
+                        {%- if page_header_description_text -%}
+                            {{- page_header_description_text -}}
+                        {%- else -%}
+                            {{- description -}}
+                        {%- endif -%}
+                    </div>
+                {% endif %}
+
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

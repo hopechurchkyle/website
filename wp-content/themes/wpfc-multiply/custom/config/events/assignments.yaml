@@ -1,0 +1,8 @@
+context: {  }
+menu: {  }
+post:
+  tribe_events:
+    is_singular: true
+    is_archive: true
+taxonomy: {  }
+archive: {  }

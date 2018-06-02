@@ -1,0 +1,64 @@
+#wpfc-metabox {
+  > h2.hndle {
+    background: #4c9ce0;
+    color: #fff;
+  }
+
+  .toggle-indicator::before {
+    color: #fff;
+  }
+
+  .inside {
+    h2 {
+      letter-spacing: 1px;
+      border-bottom: 1px solid #eee;
+      padding-left: 0;
+    }
+
+    th {
+      padding: 1rem 1rem 1rem 0;
+      text-align: left;
+      width: 25%;
+
+      .description {
+        display: block;
+        font-weight: 400;
+      }
+    }
+
+    td {
+      display: block;
+      padding-top: 1rem;
+      width: 40%;
+    }
+  }
+  
+  .meta-table {
+    width: 100%;
+  }
+  
+  input[type=text], 
+  input[type=search], 
+  input[type=radio], 
+  input[type=tel], 
+  input[type=time], 
+  input[type=url], 
+  input[type=week], 
+  input[type=password], 
+  input[type=color], 
+  input[type=date], 
+  input[type=datetime], 
+  input[type=datetime-local], 
+  input[type=email], 
+  input[type=month], 
+  input[type=number], 
+  select, 
+  textarea {
+    min-width: 250px;
+    width: 100%;
+  }
+  
+  .wp-picker-active input[type=text] {
+    display: none !important;
+  }
+}

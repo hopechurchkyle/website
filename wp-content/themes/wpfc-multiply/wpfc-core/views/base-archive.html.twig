@@ -1,0 +1,64 @@
+{% extends "partials/page.html.twig" %}
+{% set twigTemplate = 'base-archive.html.twig' %}
+
+{% set platform_class = platform_class ?? 'platform-wordpress' %}
+
+{% set content = content ?? 'content' %}
+{% set columns = gantry.config.get('content.' ~ scope ~ '.grid.columns', '1') %}
+{% set size = 'size-' ~ (100 / columns|default('1'))|number_format(1, '-')|replace({"-0" : ""}) %}
+{% set tablet_size = gantry.config.get('content.' ~ scope ~ '.grid.tablet.columns', 'tablet-default') %}
+{% set phone_size = gantry.config.get('content.' ~ scope ~ '.grid.phone.columns', 'phone-default') %}
+
+{% set class_grid = class_grid ?? 'g-grid' %}
+{% set class_block = class_block ?? ['g-block equal-height', size, tablet_size, phone_size]|join(' ') %}
+{% set class_content = class_content ?? 'g-content' %}
+
+{% set route = route ?? 'platform' %}
+
+{% block content %}
+
+    <div class="platform-content {{ platform_class }}">
+        <div class="{{ scope }}">
+
+            {# Begin Page Header #}
+            {% block header %}
+                {% include 'platform/partials/page-header.html.twig' %}
+            {% endblock %}
+            
+            {% if posts is not empty %}
+
+                {# Begin Post Entries #}
+                {% block entries %}
+                    <section class="entries {{ class_grid }}">
+                        {% for post in posts %}
+                            {% set route_scope = route ~ '/content/content-' ~ scope ~ '.html.twig' %}
+                            {% set route_format = route ~ '/content/content-' ~ post.format ~ '.html.twig' %}
+                            {% set route_default = route ~ '/content/' ~ content ~ '.html.twig' %}
+
+                            {% include [route_scope, route_format, route_default] %}
+                        {% endfor %}
+                    </section>
+                {% endblock %}
+
+                {# Begin Pagination #}
+                {% block pagination %}
+                    {% if pagination.pages and pagination.pages|length > 1 %}
+                        {% include 'platform/partials/pagination.html.twig' %}
+                    {% endif %}
+                {% endblock %}
+
+            {% else %}
+
+                {# No posts found #}
+                {% block notice %}
+                    <div class="no-matches-notice">
+                        <h3>{{ __( 'Sorry, but there are not any posts matching your query.', 'wpfc-core' ) }}</h3>
+                    </div>
+                {% endblock %}
+
+            {% endif %}
+            
+        </div>
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,9 @@
+<root>
+    <params name="basic" label="Vimeo generator">
+        <param type="token"/>
+        <param name="client_id" type="text" label="Client Identifier" default="" style="width:400px;"/>
+        <param name="client_secret" type="text" label="Client secret" default="" style="width:400px;"/>
+        <param name="access_token" type="vimeotoken" label="Token" default=""/>
+        <param name="callback" type="container" label="Callback url"/>
+    </params>
+</root>

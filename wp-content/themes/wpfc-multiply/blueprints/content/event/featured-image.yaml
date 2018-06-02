@@ -1,0 +1,12 @@
+name: Featured Image
+description: Options for displaying featured image
+type: event
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Display featured image on archive type page.
+      default: 1

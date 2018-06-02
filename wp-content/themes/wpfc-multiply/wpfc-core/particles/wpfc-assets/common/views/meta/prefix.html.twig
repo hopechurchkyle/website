@@ -1,0 +1,7 @@
+{% set meta_prefix = meta_prefix ?? scope.meta[meta_scope].prefix %}
+
+{% block meta_prefix %}
+    {% if meta_prefix %}
+        <div class="wpfc-meta-prefix">{{ meta_prefix }}</div>
+    {% endif %}
+{% endblock %}

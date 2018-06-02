@@ -1,0 +1,60 @@
+<root>
+    <params>
+        <param type="group" label="Top">
+            <param name="shapedivider-top-type" type="shapedividertype" label="Type" default="0">
+                <option value="0">None</option>
+                <option value="curve">Curve</option>
+                <option value="triangles">Triangles</option>
+            </param>
+            <param name="shapedivider-top-color" type="color" alpha="1" label="Color" default="ffffffff"/>
+            <param name="shapedivider-top-color2" type="color" alpha="1" label="Secondary"
+                   default="FFFFFF80"/>
+            <param name="shapedivider-top-width" type="numberautocompleteslider" label="Width" default="100"
+                   style="width:35px"
+                   values="100,150,200" min="100" max="400" step="5" slmax="400">
+                <unit>%</unit>
+            </param>
+            <param name="shapedivider-top-height" type="numberautocompleteslider" label="Height" default="100"
+                   style="width:35px" min="0" max="500" step="10" slmax="500">
+                <unit>px</unit>
+            </param>
+
+            <param name="shapedivider-top-flip" type="onoff" label="Flip" default="0"/>
+            <param name="shapedivider-top-animate" type="onoff" label="Animate" default="0"/>
+            <param name="shapedivider-top-scroll" type="list" label="Scroll" default="0">
+                <option value="0">None</option>
+                <option value="grow">Grow</option>
+                <option value="shrink">Shrink</option>
+            </param>
+        </param>
+
+
+        <param type="group" label="Bottom">
+            <param name="shapedivider-bottom-type" type="shapedividertype" label="Type" default="0">
+                <option value="0">None</option>
+                <option value="curve">Curve</option>
+                <option value="triangles">Triangles</option>
+            </param>
+            <param name="shapedivider-bottom-color" type="color" alpha="1" label="Color" default="ffffffff"/>
+            <param name="shapedivider-bottom-color2" type="color" alpha="1" label="Secondary"
+                   default="FFFFFF80"/>
+            <param name="shapedivider-bottom-width" type="numberautocompleteslider" label="Width" default="100"
+                   style="width:35px"
+                   values="100,150,200" min="100" max="400" step="5" slmax="400">
+                <unit>%</unit>
+            </param>
+            <param name="shapedivider-bottom-height" type="numberautocompleteslider" label="Height" default="100"
+                   style="width:35px" min="0" max="500" step="10" slmax="500">
+                <unit>px</unit>
+            </param>
+
+            <param name="shapedivider-bottom-flip" type="onoff" label="Flip" default="0"/>
+            <param name="shapedivider-bottom-animate" type="onoff" label="Animate" default="0"/>
+            <param name="shapedivider-bottom-scroll" type="list" label="Scroll" default="0">
+                <option value="0">None</option>
+                <option value="grow">Grow</option>
+                <option value="shrink">Shrink</option>
+            </param>
+        </param>
+    </params>
+</root>

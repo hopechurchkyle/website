@@ -1,0 +1,13 @@
+{% set scope = 'searchform' %}
+
+{% block search_form %}
+
+    <form role="search" method="get" class="search-form form" action="{{ site.url }}/">
+        <label>
+            <span class="screen-reader-text">{{ __('Search for:', 'wpfc-core') }}</span>
+        </label>
+        <input type="search" class="search-field" placeholder="{{ __( 'Search …', 'wpfc-core' ) }}" value="" name="s" title="{{ __('Search for:', 'wpfc-core') }}" />
+        <button type="submit" class="search-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+
+{% endblock %}

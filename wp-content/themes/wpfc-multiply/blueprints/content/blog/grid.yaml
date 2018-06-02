@@ -1,0 +1,6 @@
+name: Grid
+description:
+type: blog
+
+extends@:
+  - type: archive/grid

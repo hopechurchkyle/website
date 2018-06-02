@@ -1,0 +1,28 @@
+{% set meta_scope = 'meta-comments' %}
+{% set meta_comments_enabled = meta_comments_enabled ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.enabled', '') %}
+{% set meta_comments_link = meta_comments_link ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.link', '1') %}
+
+{% block meta_comments %}
+    {% if meta_comments_enabled %}
+        <div class="meta-comments meta-item">
+            {% block meta_comments_content %}
+                {% if post.comment_count == '0' %}
+                    {% set comment_count = __('No comments', 'wpfc-core') %}
+                {% elseif post.comment_count == '1' %}
+                    {% set comment_count = post.comment_count ~ ' ' ~ __('Comment', 'wpfc-core') %}
+                {% else %}
+                    {% set comment_count = post.comment_count ~ ' ' ~ __('Comments', 'wpfc-core') %}
+                {% endif %}
+
+                {% include 'platform/meta/icon.html.twig' %}
+                {% include 'platform/meta/prefix.html.twig' %}
+
+                {% if meta_comments_link %}
+                    <a href="{{ post.link ~ '#comments' }}" class="comments-count">{{ comment_count }}</a>
+                {% else %}
+                    <span class="comments-count">{{ comment_count }}</span>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

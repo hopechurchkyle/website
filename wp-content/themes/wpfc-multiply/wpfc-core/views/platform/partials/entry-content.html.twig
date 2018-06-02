@@ -1,0 +1,33 @@
+{% set entry_content_enabled = entry_content_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-content.enabled', '1') %}
+{% set entry_content_type = entry_content_type ?? gantry.config.get('content.' ~ scope ~ '.entry-content.type', 'content') %}
+{% set entry_content_limit = entry_content_limit ?? gantry.config.get('content.' ~ scope ~ '.entry-content.limit', '') %}
+{% set readmore = preg_match('/<!--more(.*?)?-->/', post.post_content) %}
+
+{% block entry_content %}
+    {% if entry_content_enabled %}
+        <div class="entry-content">        
+            {% block entry_content_inner %}       
+                {% if entry_content_type == 'excerpt' and post.post_excerpt %}
+                    {# Begin Post Excerpt #}
+                    <div class="post-excerpt">{{ post.post_excerpt|apply_filters('the_excerpt') }}</div>
+                {% else %}
+                    {# Begin Post Content #}
+                    <div class="post-content">
+                        {% if readmore is not empty %}
+                            {% set split_content = post.post_content|split(readmore[0], 2) %}
+                            {{ split_content[0]|apply_filters('the_content')|raw }}
+                        {% elseif '<!--nextpage-->' in post.post_content %}
+                            {% set split_content = post.post_content|split('<!--nextpage-->', 2) %}
+                            {{ split_content[0]|apply_filters('the_content')|raw }}
+                        {% elseif entry_content_limit %}
+                            {{ post.content('',entry_content_limit)|raw }}
+                        {% else %}
+                            {{ post.content|raw }}
+                        {% endif %}
+                    </div>               
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+    
+{% endblock %}

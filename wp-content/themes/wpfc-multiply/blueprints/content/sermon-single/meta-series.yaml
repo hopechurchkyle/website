@@ -1,0 +1,6 @@
+name: Meta Series
+description:
+type: sermon-single
+
+extends@:
+  - type: sermon-archive/meta-series

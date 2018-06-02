@@ -1,0 +1,234 @@
+// Basics
+$white: #ffffff;
+$black: #000000;
+$off-white: #f5f5f5;
+
+// Accent Colors
+$accent-color-1: #03a9f4 !default;
+$accent-color-2: #ffd94a !default;
+
+// Headroom
+$headroom-scroll-background: '' !default;
+$headroom-scroll-color: '' !default;
+
+// Body
+$body-color: #181818 !default;
+$body-background: #f5f5f5 !default;
+$body-border-color: #ebebeb !default;
+$body-background-image: false !default;
+$body-background-size: cover !default;
+$body-background-repeat: no-repeat !default;
+$body-background-position: left top !default;
+$body-background-attachment: fixed !default;
+
+// Base
+$base-color: #181818 !default;
+$base-background: #ffffff !default;
+$base-border-color: #ebebeb !default;
+$base-background-image: false !default;
+$base-background-size: cover !default;
+$base-background-repeat: no-repeat !default;
+$base-background-position: left top !default;
+$base-background-attachment: scroll !default;
+
+// Menu
+$menu-color: #181818 !default;
+$menu-color-active: #989898 !default;
+$menu-subitem-color: #181818 !default;
+$menu-subitem-color-active: #989898 !default;
+$menu-dropdown-background: #ffffff !default;
+$menu-dropdown-border-color: #ebebeb !default;
+$menu-dropdown-shadow: 0 2px 4px 0 rgba(0,0,0,.08) !default;
+
+// Above
+$above-color: #181818 !default;
+$above-background: #ffffff !default;
+$above-background-image: false !default;
+$above-background-size: cover !default;
+$above-background-repeat: no-repeat !default;
+$above-background-position: left top !default;
+$above-background-attachment: scroll !default;
+
+// Addons
+$addons-color: #181818 !default;
+$addons-background: #ffffff !default;
+$addons-background-image: false !default;
+$addons-background-size: cover !default;
+$addons-background-repeat: no-repeat !default;
+$addons-background-position: left top !default;
+$addons-background-attachment: scroll !default;
+
+// Aside
+$aside-color: #181818 !default;
+$aside-background: #ffffff !default;
+$aside-background-image: false !default;
+$aside-background-size: cover !default;
+$aside-background-repeat: no-repeat !default;
+$aside-background-position: left top !default;
+$aside-background-attachment: scroll !default;
+
+// Below
+$below-color: #181818 !default;
+$below-background: #ffffff !default;
+$below-background-image: false !default; 
+$below-background-size: cover !default;
+$below-background-repeat: no-repeat !default;
+$below-background-position: left top !default;
+$below-background-attachment: scroll !default;
+
+// Bottom
+$bottom-color: #181818 !default;
+$bottom-background: #ffffff !default;
+$bottom-background-image: false !default;
+$bottom-background-size: cover !default;
+$bottom-background-repeat: no-repeat !default;
+$bottom-background-position: left top !default;
+$bottom-background-attachment: scroll !default;
+
+// Container Main
+$container-main-color: #181818 !default;
+$container-main-background: #ffffff !default;
+$container-main-background-image: false !default;
+$container-main-background-size: cover !default;
+$container-main-background-repeat: no-repeat !default;
+$container-main-background-position: left top !default;
+$container-main-background-attachment: scroll !default;
+
+// Copyright
+$copyright-color: #181818  !default;
+$copyright-background: #ffffff !default;
+$copyright-background-image: false !default; 
+$copyright-background-size: cover !default;
+$copyright-background-repeat: no-repeat !default;
+$copyright-background-position: left top !default;
+$copyright-background-attachment: scroll !default;
+
+// Expanded
+$expanded-color: #181818 !default;
+$expanded-background: #ffffff !default;
+$expanded-background-image: false !default; 
+$expanded-background-size: cover !default;
+$expanded-background-repeat: no-repeat !default;
+$expanded-background-position: left top !default;
+$expanded-background-attachment: scroll !default;
+
+// Extended
+$extended-color: #181818 !default;
+$extended-background: #ffffff !default;
+$extended-background-image: false !default;
+$extended-background-size: cover !default;
+$extended-background-repeat: no-repeat !default;
+$extended-background-position: left top !default;
+$extended-background-attachment: scroll !default;
+
+// Feature
+$feature-color: #181818 !default;
+$feature-background: #ffffff !default;
+$feature-background-image: false !default;
+$feature-background-size: cover !default;
+$feature-background-repeat: no-repeat !default;
+$feature-background-position: left top !default;
+$feature-background-attachment: scroll !default;
+
+// Footer
+$footer-color: #181818 !default;
+$footer-background: #ffffff !default;
+$footer-background-image: false !default;
+$footer-background-size: cover !default;
+$footer-background-repeat: no-repeat !default;
+$footer-background-position: left top !default;
+$footer-background-attachment: scroll !default; 
+
+// Header
+$header-color: #181818 !default;
+$header-background: #ffffff !default;
+$header-background-image: false !default;
+$header-background-size: cover !default;
+$header-background-repeat: no-repeat !default;
+$header-background-position: left top !default;
+$header-background-attachment: scroll !default;
+
+// Mainbar
+$mainbar-color: #181818 !default;
+$mainbar-background: #ffffff !default;
+
+// Modules
+$modules-color: #181818 !default;
+$modules-background: #ffffff !default;
+$modules-background-image: false !default;
+$modules-background-size: cover !default;
+$modules-background-repeat: no-repeat !default;
+$modules-background-position: left top !default;
+$modules-background-attachment: scroll !default;
+
+// Navigation
+$navigation-color: #181818 !default;
+$navigation-background: #ffffff !default;
+$navigation-mobile-color: #ffffff !default;
+$navigation-mobile-background: #222222 !default;
+$navigation-background-image: false !default; 
+$navigation-background-size: cover !default;
+$navigation-background-repeat: no-repeat !default;
+$navigation-background-position: left top !default;
+$navigation-background-attachment: scroll !default;
+
+// Off Canvas
+$offcanvas-color: #181818 !default;
+$offcanvas-background: #ffffff !default;
+
+// Showcase
+$showcase-color: #181818 !default;
+$showcase-background: #ffffff !default;
+$showcase-background-image: false !default; 
+$showcase-background-size: cover !default;
+$showcase-background-repeat: no-repeat !default;
+$showcase-background-position: left top !default;
+$showcase-background-attachment: scroll !default;
+
+// Sidebar
+$sidebar-color: #181818 !default;
+$sidebar-background: #ffffff !default;
+$sidebar-background-image: false !default; 
+$sidebar-background-size: cover !default;
+$sidebar-background-repeat: no-repeat !default;
+$sidebar-background-position: left top !default;
+$sidebar-background-attachment: scroll !default;
+
+// Subfeature
+$subfeature-color: #181818 !default;
+$subfeature-background: #ffffff !default;
+$subfeature-background-image: false !default; 
+$subfeature-background-size: cover !default;
+$subfeature-background-repeat: no-repeat !default;
+$subfeature-background-position: left top !default;
+$subfeature-background-attachment: scroll !default;
+
+// System
+$system-color: #181818 !default;
+$system-background: #ffffff !default;
+$system-background-image: false !default; 
+$system-background-size: cover !default;
+$system-background-repeat: no-repeat !default;
+$system-background-position: left top !default;
+$system-background-attachment: scroll !default;
+
+// Top
+$top-color: #181818 !default;
+$top-background: #ffffff !default;
+$top-background-image: false !default; 
+$top-background-size: cover !default;
+$top-background-repeat: no-repeat !default;
+$top-background-position: left top !default;
+$top-background-attachment: scroll !default;
+
+// Utility
+$utility-color: #181818 !default;
+$utility-background: #f5f5f5 !default;
+$utility-background-image: false !default;
+$utility-background-size: cover !default;
+$utility-background-repeat: no-repeat !default;
+$utility-background-position: left top !default;
+$utility-background-attachment: scroll !default;
+
+// Box Shadow
+$base-shadow: 0 2px 4px 0 rgba(0,0,0,.08);

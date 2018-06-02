@@ -1,0 +1,19 @@
+.wpfc-elementor-posts.wpfc-style2 {
+    .wpfc-block-content {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    
+    .wpfc-wrapper {
+        flex: 1;
+    }
+    
+    .wpfc-title {
+        margin: 0 0 1.5rem 0;
+    }
+    
+    .wpfc-author {
+        text-align: right;
+        margin-top: 1.5rem;
+    }
+}

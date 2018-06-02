@@ -1,0 +1,11 @@
+name: Offcanvas Toggle
+type: particle 
+icon: fa-bars
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      default: true

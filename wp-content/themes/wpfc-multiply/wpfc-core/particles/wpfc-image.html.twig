@@ -1,0 +1,35 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+    {% set url = url(particle.url)|default(gantry.siteUrl()) %}
+    {% if (url == gantry.siteUrl()) %}{% set rel='rel="home"' %}{% endif %}
+    {% set class=(particle.class ? 'class="'~ particle.class ~'"') %}
+    {% set image = url(particle.image) %}
+    {% set scroll_image = url(particle.scroll.image) %}
+
+    <div class="{{ id }}">
+        <a href="{{ url }}" title="{{ particle.text }}" {{ rel|default('')|raw }} {{ class|default('')|raw }}>
+            {% if particle.svg is not empty %}
+                {{ particle.svg|raw }}
+            {% elseif image %}
+                {%- if not gantry.mobile_detect.isMobile() -%}
+                    <img src="{{ url(particle.image) }}" alt="{{ particle.text }}" {% if particle.width %} style="max-width: {{ particle.width }}"{% endif %} />
+                {%- else -%}
+                    <img src="{{ url(particle.mobile.image) }}" alt="{{ particle.text }}" {% if particle.mobile.width %} style="max-width: {{ particle.mobile.width }}"{% endif %} />
+                {%- endif -%}
+            {% else %}
+                {{ particle.text|default('Logo') }}
+            {% endif %}
+        </a>
+    </div>
+
+    {% set inline_style %}
+        .headroom--not-top.headroom--pinned [class*="wpfc-image-"] img {
+            content: url( {{ scroll_image }} );
+        }
+    {% endset %}
+
+    {% if scroll_image %}
+        {% do gantry.document.addInlineStyle(inline_style) %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% set meta_scope = 'comments' %}
+{% set meta_comments_enabled = meta_comments_enabled ?? scope.meta.comments.enabled %}
+
+{% block meta_comments %}
+    {% if meta_comments_enabled %}
+        <div class="wpfc-meta-comments">
+            {% block meta_comments_content %}
+                {% include '@particles/wpfc-assets/common/views/meta/icon.html.twig' %}
+                {% include '@particles/wpfc-assets/common/views/meta/prefix.html.twig' %}
+
+                {% if meta_comments_enabled == 'link' %}
+                    <a href="{{ post.comments.link }}" class="wpfc-comments-count">{{ post.comments.text|raw }}</a>
+                {% else %}
+                    <span class="wpfc-comments-count">{{ post.comments.text|raw }}</span>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

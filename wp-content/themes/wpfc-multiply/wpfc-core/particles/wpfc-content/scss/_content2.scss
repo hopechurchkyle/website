@@ -1,0 +1,13 @@
+[class*="wpfc-content-"].wpfc-style-content2 {
+    .g-content {
+        @include display(flex);
+    }
+
+    .wpfc-post-thumbnail {
+        @include flex(none);
+        margin: 0 1.5rem 0 0;
+        [dir="rtl"] & {
+            margin: 0 0 0 1.5rem;
+        }
+    }
+}

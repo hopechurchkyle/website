@@ -1,0 +1,1 @@
+sass --watch scss/base.scss:assets/css-compiled/wpfc-elementor.css --sourcemap=none --style compressed --no-cache

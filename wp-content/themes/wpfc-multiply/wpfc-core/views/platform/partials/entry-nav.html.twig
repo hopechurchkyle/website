@@ -1,0 +1,39 @@
+{% set entry_nav_enabled = entry_nav_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-nav.enabled', '1') %}
+{% set entry_nav_title = entry_nav_title ?? gantry.config.get('content.' ~ scope ~ '.entry-nav.title', '1') %}
+{% set entry_nav_icon = entry_nav_icon ?? gantry.config.get('content.' ~ scope ~ '.entry-nav.icon', '1') %}
+
+{% set entry_nav_image = entry_nav_image ?? gantry.config.get('content.' ~ scope ~ '.entry-nav.image.enabled', '1') %}
+{% set entry_nav_image_width = entry_nav_image_width ?? gantry.config.get('content.' ~ scope ~ '.entry-nav.image.width', '100') %}
+{% set entry_nav_image_height = entry_nav_image_height ?? gantry.config.get('content.' ~ scope ~ '.entry-nav.image.height', '120') %}
+
+{% set entry_nav_prev_prefix = entry_nav_prev_prefix ?? gantry.config.get('content.' ~ scope ~ '.entry-nav.prev.prefix', 'Previous Post') %}
+{% set entry_nav_next_prefix = entry_nav_next_prefix ?? gantry.config.get('content.' ~ scope ~ '.entry-nav.next.prefix', 'Next Post') %}
+{% set entry_nav_same = entry_nav_same ?? gantry.config.get('content.' ~ scope ~ '.entry-nav.same', true) %}
+
+{% block entry_nav %}
+    {% if entry_nav_enabled and (post.prev or post.next) %}
+        <div class="entry-nav">
+            {% block entry_nav_content %}
+                {# Previous Post #}
+                {% if post.prev %}
+                    <div class="entry-nav-prev entry-nav-item">
+                        <div class="entry-nav-prefix">{{ entry_nav_prev_prefix }}</div>
+                        <h4 class="entry-nav-title">
+                            <a href="{{ post.prev.link(entry_nav_same) }}" title="{{ post.prev.title(entry_nav_same) }}">{{ post.prev.title(entry_nav_same) }}</a>
+                        </h4>
+                    </div>
+                {% endif %}
+
+                {# Next Post #}
+                {% if post.next %}
+                    <div class="entry-nav-next entry-nav-item">
+                        <div class="entry-nav-prefix">{{ entry_nav_next_prefix }}</div>
+                        <h4 class="entry-nav-title">
+                            <a href="{{ post.next.link(entry_nav_same) }}" title="{{ post.next.title(entry_nav_same) }}">{{ post.next.title(entry_nav_same) }}</a>
+                        </h4>
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

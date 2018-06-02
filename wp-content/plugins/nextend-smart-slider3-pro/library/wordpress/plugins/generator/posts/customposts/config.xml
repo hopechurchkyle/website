@@ -1,0 +1,41 @@
+<root>
+    <params name="filter" label="Filter">
+        <param name="taxonomies" label="Taxonomy - term" type="taxonomies" default="0" multiple="1"
+               size="10"/>
+        <param name="ids" label="Ids (one per line)" type="textarea" default="" style2="width:300px;height: 200px;"/>
+        <param type="group" label="Post meta"
+               tip="Only show posts, where the given meta key is equal to the given meta value.">
+            <param name="postmetakey" label="Meta key" type="postmetas" default="0"/>
+            <param name="postmetavalue" label="Meta value" type="text" default=""/>
+            <param type="text" name="postmetacompare" label="Compare" tip="MySQL operator used for comparing the meta value. Accepts =, !=, >, >=, &lt;, &lt;=, LIKE, NOT LIKE, IN, NOT IN, BETWEEN, NOT BETWEEN, REGEXP,NOT REGEXP, RLIKE, EXISTS or NOT EXISTS. Default (= leaving this field empty) is IN when meta value is an array, = otherwise." default=""/>
+        </param>
+        <param name="poststatus" label="Post status" type="text" default="publish"
+               tip="Set the post status key if you would like to show non-published posts as well. Separate the statuses with a single comma, without spaces. Example: publish,draft"/>
+    </params>
+    <params name="order" label="Order by">
+        <param name="postsorder" type="mixed" label="Order" default="post_date|*|desc">
+            <param type="list" label="Field" translateable="1">
+                <option value="none">None</option>
+                <option value="post_date">Post date</option>
+                <option value="ID">ID</option>
+                <option value="title">Title</option>
+                <option value="post_modified">Modification date</option>
+                <option value="rand">Random</option>
+                <option value="post__in">Given IDs</option>
+            </param>
+            <param type="radio" label="order" translateable="1">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </param>
+        </param>
+        <param name="meta_order" type="group" label="Order by given meta key"
+               tip="If its set, this will be used instead of the 'Field' value.">
+            <param name="meta_order_key" label="Meta key" type="postmetas" default="0"/>
+            <param name="meta_orderby" type="list" label="orderby value"
+                   tip="This will be used at the get_posts function as the 'orderby' value. If you are not sure which one you need, just try both out." default="meta_value_num">
+                <option value="meta_value_num">meta_value_num</option>
+                <option value="meta_value">meta_value</option>
+            </param>
+        </param>
+    </params>
+</root>

@@ -1,0 +1,19 @@
+{% set meta_scope = meta_date ?? 'date' %}
+{% set sermon_meta_date_enabled = sermon_meta_date_enabled ?? scope.meta.date.enabled %}
+
+{% block sermon_meta_date_enabled %}
+    {% if sermon_meta_date_enabled and post.meta('sermon_date') %}
+        <div class="wpfc-meta-date wpfc-meta-item">
+            {% block sermon_meta_date_content %}
+                {% include '@particles/wpfc-assets/common/views/meta/icon.html.twig' %}
+                {% include '@particles/wpfc-assets/common/views/meta/prefix.html.twig' %}
+
+                {% if sermon_meta_date_enabled == 'link' %}
+                    <a href="{{ post.link }}" title="{{ post.title }}" class="wpfc-date">{{ fn('sm_the_date') }}</a>
+                {% else %}
+                    <span class="wpfc-date">{{ post.meta('sermon_date')|date(sermon_meta_date_format) }}</span>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

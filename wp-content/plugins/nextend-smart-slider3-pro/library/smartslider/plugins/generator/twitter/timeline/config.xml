@@ -1,0 +1,7 @@
+<root>
+    <params name="filter" label="Filter">
+        <param name="retweets" label="Include retweets" type="onoff" default="1"/>
+        <param name="replies" label="Exclude replies" type="onoff" default="0"/>
+        <param name="remove_spec_chars" label="Remove special characters" type="onoff" default="0"/>
+    </params>
+</root>

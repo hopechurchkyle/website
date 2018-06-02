@@ -1,0 +1,14 @@
+name: Author Meta
+description: Options for displaying author meta
+type: blog
+
+extends@:
+  - type: archive/meta-author
+
+form:
+  fields:
+    
+    prefix:
+      type: input.text 
+      label: Prefix
+      default: 'By'

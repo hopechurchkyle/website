@@ -1,0 +1,16 @@
+{% set sermon_entry_audio_enabled = sermon_entry_audio_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-audio.enabled', '1') %}
+
+{% if sermon_entry_audio_enabled and fn('is_archive') and fn('get_option', 'sermonmanager_archive_player') == 'yes' %}
+    {% set is_enabled = 'true' %}
+{% elseif sermon_entry_audio_enabled and not fn('is_archive') %}
+    {% set is_enabled = 'true' %}
+{% endif %}
+
+{% block sermon_entry_audio %}
+    {% if is_enabled %}
+        <div class="entry-audio">
+            {{ function('wpfc_render_audio', post.meta('sermon_audio')) }}
+            {% include "wpfc-sermon/partials/entry-audio-download.html.twig" %}
+        </div>
+    {% endif %}
+{% endblock %}

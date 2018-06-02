@@ -1,0 +1,16 @@
+name: Font Families
+description: Font Families
+type: core
+
+form:
+  fields:
+
+    family-body:
+      type: input.fonts
+      label: Body Font
+      default: ''
+    
+    family-header:
+      type: input.fonts
+      label: Header Font
+      default: ''

@@ -1,0 +1,27 @@
+name: Post Navigation
+description: Options for displaying post navigation links
+type: page
+
+extends@:
+  - type: single/entry-nav
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Post Navigation
+      description: Display post nav links.
+      default: 0
+
+    prev.prefix:
+      type: input.text
+      label: Previous Article Prefix
+      description: 
+      default: 'Previous Page'
+
+    next.prefix:
+      type: input.text
+      label: Next Article Prefix
+      description: 
+      default: 'Next Page'

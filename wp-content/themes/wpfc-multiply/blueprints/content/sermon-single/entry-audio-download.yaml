@@ -1,0 +1,12 @@
+name: Download Audio
+description:
+type: sermon-single
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Download Audio
+      description:
+      default: 1

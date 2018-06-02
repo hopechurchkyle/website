@@ -1,0 +1,43 @@
+.entry-nav {
+    margin: 3rem (-$content-margin) 0 (-$content-margin);
+    @include display(flex);
+    @include flex-flow(row wrap);
+
+    .entry-nav-item {
+        margin: 0 $content-margin;
+        @include flex(1);
+    }
+
+    .entry-nav-prev {
+        text-align: left;
+        [dir="rtl"] & {
+            text-align: right;
+        }
+    }
+
+    .entry-nav-next {
+        text-align: right;
+        [dir="rtl"] & {
+            text-align: left;
+        }
+    }
+
+    .entry-nav-prefix {
+        opacity: .87;
+    }
+
+    .entry-nav-title {
+        margin: 0;
+    }
+
+    @include breakpoint(mobile-only) {
+        .entry-nav-item {
+            @include flex(100%);
+            margin-bottom: 1.5rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+}

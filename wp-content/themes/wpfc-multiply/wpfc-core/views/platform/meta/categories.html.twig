@@ -1,0 +1,24 @@
+{% set meta_scope = 'meta-categories' %}
+{% set meta_categories_enabled = meta_categories_enabled ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.enabled', '1') %}
+{% set meta_categories_link = meta_categories_link ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.link', '1') %}
+
+{% block meta_categories %}
+    {% if meta_categories_enabled %}
+        <div class="meta-categories meta-item">
+            {% block meta_categories_content %}
+                {% include 'platform/meta/icon.html.twig' %}
+                {% include 'platform/meta/prefix.html.twig' %}
+
+                <span class="categories">
+                    {% for category in post.categories %}
+                        {% if meta_categories_link %}
+                            <a href="{{ category.link }}" title="{{ category.title }}" class="single-cat">{{ category.title }}</a>
+                        {% else %}
+                            <span class="single-cat">{{ category.title }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

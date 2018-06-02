@@ -1,0 +1,63 @@
+// Container
+.wpfc-container {
+    position: relative;
+    margin: auto;
+    padding: 0 $content-margin + $content-padding;
+    
+    max-width: $breakpoints-large-desktop-container;
+    @include breakpoint(desktop-range) {
+	    max-width: $breakpoints-desktop-container;
+	}
+	@include breakpoint(tablet-range) {
+		max-width: $breakpoints-tablet-container;
+	}
+	@include breakpoint(large-mobile-range) {
+		max-width: $breakpoints-large-mobile-container;
+	}
+	@include breakpoint(small-mobile-range) {
+		max-width: $breakpoints-mobile-container;
+	}
+}
+
+// Breakpoints
+@include breakpoint(tablet-range) {
+
+    // Tablet Sizes
+    #g-page-surround {
+        .wpfc-tablet-100 {
+            @include flex(0 100%);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .wpfc-tablet-50 {
+            @include flex(0 50%);
+            width: 50%;
+            max-width: 50%;
+        }
+
+        .wpfc-tablet-33-3 {
+            @include flex(0 33.3333%);
+            width: 33.3333%;
+            max-width: 33.3333%;
+        }
+
+        .wpfc-tablet-25 {
+            @include flex(0 25%);
+            width: 25%;
+            max-width: 25%;
+        }
+    }  
+}
+
+@include breakpoint(large-mobile-range) {
+
+    // Phone Sizes
+    #g-page-surround {
+        .wpfc-phone-50 {
+            @include flex(0 50%);
+            width: 50%;
+            max-width: 50%;
+        }  
+    }
+}

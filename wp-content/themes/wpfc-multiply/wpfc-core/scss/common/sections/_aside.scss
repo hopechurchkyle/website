@@ -1,0 +1,12 @@
+#g-aside {
+    position: relative;
+    color: $aside-color;
+    background: $aside-background;
+    @if $aside-background-image {
+        background-image: url($aside-background-image);
+        background-size: unquote($aside-background-size);
+        background-repeat: unquote($aside-background-repeat);
+        background-position: unquote($aside-background-position);
+        background-attachment: unquote($aside-background-attachment);
+    }
+}

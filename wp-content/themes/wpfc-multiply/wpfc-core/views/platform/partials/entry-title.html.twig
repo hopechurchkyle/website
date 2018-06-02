@@ -1,0 +1,22 @@
+{% set entry_title_enabled = entry_title_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-title.enabled', '1') %}
+{% set entry_title_tag = entry_title_tag ?? gantry.config.get('content.' ~ scope ~ '.entry-title.tag', 'h2') %}
+{% set entry_title_link = entry_title_link ?? gantry.config.get('content.' ~ scope ~ '.entry-title.link', '') %}
+{% set entry_title_limit = entry_title_limit ?? gantry.config.get('content.' ~ scope ~ '.entry-title.limit', '') %}
+{% set entry_title_text = entry_title_limit ? post.title|truncate_html(entry_title_limit) : post.title %}
+
+{% block entry_title %}
+    {% if entry_title_enabled %}
+        <{{ entry_title_tag }} class="entry-title">       
+            {% block entry_title_content %}
+                {% if entry_title_link %}
+                    <a href="{{ post.link }}" title="{{ post.title }}" class="entry-title-text">
+                        {{- entry_title_text -}}
+                    </a>
+                {% else %}
+                    <span class="entry-title-text">{{ entry_title_text }}</span>
+                {% endif %}
+            {% endblock %}
+        </{{ entry_title_tag }}>
+    {% endif %}
+
+{% endblock %}

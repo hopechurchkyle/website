@@ -1,0 +1,40 @@
+{% set comments_headline_text = comments_headline_text ?? gantry.config.get('content.' ~ scope ~ '.comments.headline.text', 'Comments:') %}
+{% set comments_headline_tag = comments_headline_tag ?? gantry.config.get('content.' ~ scope ~ '.comments.headline.tag', 'h3') %}
+{% set comments_avatar_size = comments_avatar_size ?? gantry.config.get('content.' ~ scope ~ '.comments.avatar.size', '42') %}
+{% set comments_button_class = comments_button_class ?? gantry.config.get('content.' ~ scope ~ '.comments.button.class', 'button') %}
+
+{% block comments %}
+    {% if post.comment_status == 'open' and post.post_type != 'product' %}
+        <section id="comments" class="comments-area">
+            {% block comments_content %}
+                {% if post.comments is not empty %}
+                    {# Comments Headline #}
+                    {% if comments_headline_text %}
+                         <{{ comments_headline_tag }} class="comments-headline"><span>{{ comments_headline_text }}</span></{{ comments_headline_tag }}>
+                    {% endif %}
+
+                    {# Comments List #}
+                    {% set comments_parameters = {'avatar_size' : comments_avatar_size} %}
+                    <ul class="comment-list">{{ function('wp_list_comments', comments_parameters) }}</ul>
+                {% endif %}
+
+                {# Comments Form #}
+                {% set comment_form_parameters = {'class_submit' : comments_button_class} %}
+                {{ function('comment_form', comment_form_parameters) }}
+
+                {# Comments Pagination #}
+                {% set comments_pagination_args = {
+                    'prev_text': __('Previous'),
+                    'next_text': __('Next')
+                } %}
+                <div class="pagination-comments">
+                    <div class="pagination-links">{{ function('paginate_comments_links', comments_pagination_args) }}</div>
+                </div>             
+            {% endblock %}
+        </section>
+    {% endif %}   
+{% endblock %}
+
+{% if function('get_option', 'thread_comments') == '1' %}
+    {% do gantry.document.addScript(wordpress.call('wp_enqueue_script', 'comment-reply'), 10, 'footer') %}
+{% endif %}

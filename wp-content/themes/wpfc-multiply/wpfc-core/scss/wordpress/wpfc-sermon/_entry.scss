@@ -1,0 +1,138 @@
+.platform-wpfc-sermon {
+    .entry-wrapper {
+        .entry-video {
+            position: relative;
+            height: 0;
+            padding-bottom: 56.25%;
+            
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .post-thumbnail,
+        .entry-header,
+        .entry-media {
+            text-align: center;
+        }
+
+        .post-thumbnail {
+            margin: 0 0 1.5rem 0;
+        }
+
+        .entry-header {
+            margin: 0 0 3rem 0;
+        }
+
+        .entry-title {
+            margin: 0 0 .75rem 0;
+        }
+
+        .entry-meta {
+            margin: 0;
+            .meta-item {
+                display: inline-block;
+                margin: 0 1rem 0 0;
+                &:last-child {
+                    margin: 0;
+                }
+
+                [dir="rtl"] & {
+                    margin: 0 0 0 1rem;
+                    &:last-child {
+                        margin: 0;
+                    }
+                }
+            }
+
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        .meta-item a {
+            color: inherit;
+            &:hover {
+                color: $accent-color-1;
+            }
+        }
+
+        .entry-media {
+            max-width: 860px;
+            margin: 1.5rem auto;
+        }
+
+        .entry-video-embed,
+        .entry-video-link,
+        .entry-audio,
+        .entry-files {
+            margin: 1.5rem 0;
+        }
+
+        .entry-bulletin,
+        .entry-notes {
+            display: inline-block;
+            margin: 0 .25rem;
+
+            a {
+                color: inherit;
+                @include transition(none);
+                
+                display: inline-block;
+                padding: .75rem;
+                background: $white;
+                color: $base-color;
+                box-shadow: 0 0 6px 2px rgba(0, 0, 0, .1);
+                @include transition(.2s);
+                
+                &:hover {
+                    background: $accent-color-1;
+                    color: $white;
+                }
+            }
+        }
+        
+        // Entry Audio
+        .entry-audio {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .entry-audio-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+            background: white;
+            padding: 0 1.25rem;
+        }
+        
+        .wpfc-sermon-player {
+            vertical-align: middle;
+        }
+        
+        // Plyr
+        .plyr {
+            flex: 1;
+        }
+
+        .plyr + .entry-audio-download {
+            border: 1px solid #dbe3e8;
+        }
+        
+        // Old WP Player
+        .mejs-audio + .entry-audio-download {
+            background: #222;
+        }
+        
+        // HTML Player
+        .wpfc-sermon-player + .entry-audio-download {
+            display: none;
+        }
+
+    }
+}

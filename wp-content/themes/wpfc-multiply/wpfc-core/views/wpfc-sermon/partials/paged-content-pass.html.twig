@@ -1,0 +1,14 @@
+{% block sermon_paged_content_pass %}
+    {# Check If Post Is Password Protected #}
+    {% if not function( 'post_password_required', post.ID ) %}
+        
+        {# Begin Entry Content #}
+        {% include 'wpfc-sermon/partials/paged-content.html.twig' %}
+
+    {% else %}
+        
+        {# Include the password form #}
+        {% include 'platform/partials/password-form.html.twig' %}
+
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+name: Entry Bulletin
+description:
+type: sermon-single
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Bulletin
+      description:
+      default: 1

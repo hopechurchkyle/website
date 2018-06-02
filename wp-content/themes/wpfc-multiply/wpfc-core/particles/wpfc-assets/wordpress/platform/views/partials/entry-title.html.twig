@@ -1,0 +1,20 @@
+{% set entry_title_enabled = entry_title_enabled ?? scope.title.enabled %}
+{% set entry_title_tag = entry_title_tag ?? scope.title.tag %}
+{% set entry_title_limit = entry_title_limit ?? scope.title.limit %}
+{% set entry_title_text = entry_title_limit ? post.title|truncate_html(entry_title_limit) : post.title %}
+
+{% block entry_title %}
+    {% if entry_title_enabled %}
+        <{{ entry_title_tag }} class="wpfc-entry-title">   
+            {% block entry_title_content %}
+                {% if entry_title_enabled == 'link' %}
+                    <a href="{{ post.link }}" title="{{ post.title }}" class="wpfc-entry-title-text">
+                        {{- entry_title_text|raw -}}
+                    </a>
+                {% else %}
+                    <span class="wpfc-entry-title-text">{{- entry_title_text|raw -}}</span>
+                {% endif %}
+            {% endblock %}    
+        </{{ entry_title_tag }}>
+    {% endif %}
+{% endblock %}

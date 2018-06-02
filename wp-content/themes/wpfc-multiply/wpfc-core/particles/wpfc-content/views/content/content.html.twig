@@ -1,0 +1,27 @@
+<div class="g-content">
+
+    {% block content %}
+
+        {# Featured Image #}
+        {% include '@particles/wpfc-assets/wordpress/platform/views/partials/featured-image.html.twig' %}
+
+        {# Content Wrapper #}
+        <div class="wpfc-inner">
+
+            {# Title #}
+            {% include '@particles/wpfc-assets/wordpress/platform/views/partials/entry-title.html.twig' %}
+
+            {# Meta #}
+            {% include '@particles/wpfc-assets/wordpress/platform/views/partials/entry-meta.html.twig' %}
+
+            {# Content #}
+            {% include '@particles/wpfc-assets/wordpress/platform/views/partials/entry-content.html.twig' %}
+
+            {# Read More #}
+            {% include '@particles/wpfc-assets/wordpress/platform/views/partials/readmore.html.twig' %}
+            
+        </div>
+      
+    {% endblock %}
+    
+</div>

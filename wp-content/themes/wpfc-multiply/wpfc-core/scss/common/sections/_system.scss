@@ -1,0 +1,12 @@
+#g-system {
+    position: relative;
+    color: $system-color;
+    background: $system-background;
+    @if $system-background-image {
+        background-image: url($system-background-image);
+        background-size: unquote($system-background-size);
+        background-repeat: unquote($system-background-repeat);
+        background-position: unquote($system-background-position);
+        background-attachment: unquote($system-background-attachment);
+    }
+}

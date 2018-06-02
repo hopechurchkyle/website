@@ -1,0 +1,6 @@
+name: Read More
+description: Options for displaying Read More button
+type: blog
+
+extends@:
+  - type: archive/readmore

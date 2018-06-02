@@ -1,0 +1,14 @@
+name: Featured Image
+description: Options for displaying featured image
+type: blog
+
+extends@:
+  - type: archive/featured-image
+
+form:
+  fields:
+
+    link:
+      type: input.checkbox 
+      label: Link 
+      default: 1

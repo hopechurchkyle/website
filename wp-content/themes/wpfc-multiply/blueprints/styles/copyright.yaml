@@ -1,0 +1,18 @@
+name: Copyright Colors
+description: Copyright Colors
+type: section
+
+extends@: above
+
+form: 
+  fields:
+
+    color:
+      type: input.colorpicker
+      label: Text Color 
+      default: '#afafaf'
+
+    background:
+      type: input.colorpicker
+      label: Background Color
+      default: '#263238'

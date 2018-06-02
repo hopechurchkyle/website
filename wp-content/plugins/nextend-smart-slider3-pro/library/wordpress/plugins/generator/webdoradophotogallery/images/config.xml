@@ -1,0 +1,30 @@
+<root>
+    <params name="filter" label="Filter">
+        <param type="group" label="Source">
+            <param name="webdoradogalleries" label="Galleries" type="webdoradogalleries" default="0" multiple="1"
+                   size="10"/>
+            <param name="webdoradotags" label="Tags" type="webdoradotags" default="0" multiple="1"
+                   size="10"/>
+        </param>
+    </params>
+    <params name="orderby" label="Order by">
+        <param name="order" type="mixed" label="Order" default="STR_TO_DATE(a.date, '%d %m %Y, %h:%i')|*|desc">
+            <param type="list" label="Field" translateable="1">
+                <option value="0">None</option>
+                <option value="a.id">ID</option>
+                <option value="a.filename">Filename</option>
+                <option value="a.alt">Alt tag</option>
+                <option value="STR_TO_DATE(a.date, '%d %m %Y, %h:%i')">Upload date</option>
+                <option value="a.order">Order</option>
+                <option value="a.comment_count">Comment count</option>
+                <option value="a.avg_rating">Average rating</option>
+                <option value="a.rate_count">Rate count</option>
+                <option value="a.hit_count">Hit count</option>
+            </param>
+            <param type="radio" label="order" translateable="1">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </param>
+        </param>
+    </params>
+</root>

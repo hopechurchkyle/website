@@ -1,0 +1,18 @@
+name: Comments Meta
+description: Options for displaying comments meta
+type: archive
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Display Comments
+      description: Display number of comments.
+      default: 1
+
+    link:
+      type: input.checkbox
+      label: Link Comments
+      description: Link comment meta to the comments list.
+      default: 1

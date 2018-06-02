@@ -1,0 +1,7 @@
+{% set meta_prefix = meta_prefix ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.prefix', '') %}
+
+{% block meta_prefix %}
+    {% if meta_prefix %}
+        <span class="meta-prefix">{{ meta_prefix }}</span>
+    {% endif %}
+{% endblock %}

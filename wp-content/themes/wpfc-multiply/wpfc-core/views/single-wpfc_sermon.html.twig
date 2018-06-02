@@ -1,0 +1,18 @@
+{% extends "partials/page.html.twig" %}
+{% set twigTemplate = 'single.html.twig' %}
+{% set scope = 'sermon-single' %}
+{% set content = 'content-single' %}
+
+{% block content %}
+
+    <div class="platform-content platform-wpfc-sermon">
+        <div class="content-wrapper">
+            <section class="entry">
+
+                {% include ['wpfc-sermon/content/content-' ~ scope ~ '.html.twig', 'wpfc-sermon/content/' ~ content ~ '.html.twig'] %}
+
+            </section>
+        </div>
+    </div>
+
+{% endblock %}

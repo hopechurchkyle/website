@@ -1,0 +1,27 @@
+{% set meta_scope = 'meta-avatar' %}
+{% set sermon_meta_avatar_enabled = gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.enabled', '1')  %}
+{% set sermon_meta_avatar_link = gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.link', '1') %}
+
+{% set preacher_parameters = {
+    'taxonomy' : 'wpfc_preacher',
+    'post_id' : post.ID
+} %}
+{% set preachers = "image"|apply_filters('sermon-images-get-the-terms', preacher_parameters) %}
+
+{% block sermon_meta_avatar %}
+    {% if sermon_meta_avatar_enabled %}
+        <div class="meta-avatar meta-item">
+            {% block sermon_meta_avatar_content %}
+                {% for preacher in preachers %}
+                    {% if sermon_meta_avatar_link %}
+                        <a href="{{ function('get_term_link', preacher.term_id) }}" title="{{ preacher.name }}">
+                            {{ function('wp_get_attachment_image', preacher.image_id) }}
+                        </a>
+                    {% else %}
+                        {{ function('wp_get_attachment_image', preacher.image_id) }}
+                    {% endif %}
+                {% endfor %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

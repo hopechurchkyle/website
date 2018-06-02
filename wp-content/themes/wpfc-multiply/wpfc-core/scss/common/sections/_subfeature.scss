@@ -1,0 +1,12 @@
+#g-subfeature {
+    position: relative;
+    color: $subfeature-color;
+    background: $subfeature-background;
+    @if $subfeature-background-image {
+        background-image: url($subfeature-background-image);
+        background-size: unquote($subfeature-background-size);
+        background-repeat: unquote($subfeature-background-repeat);
+        background-position: unquote($subfeature-background-position);
+        background-attachment: unquote($subfeature-background-attachment);
+    }
+}

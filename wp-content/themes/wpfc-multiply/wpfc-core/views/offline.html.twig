@@ -1,0 +1,9 @@
+{% extends "partials/page.html.twig" %}
+{% set twigTemplate = 'offline.html.twig' %}
+{% set scope = 'offline' %}
+
+{% block content %}
+
+    <h3>{{ gantry.global.get('offline_message') }}</h3>
+
+{% endblock %}

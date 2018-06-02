@@ -1,0 +1,26 @@
+{% set meta_scope = 'comments' %}
+{% set meta_comments_enabled = meta_comments_enabled ?? scope.meta.comments.enabled %}
+
+{% block meta_comments %}
+    {% if meta_comments_enabled %}
+        <div class="wpfc-meta-comments wpfc-meta-item">
+            {% if post.comment_count == '0' %}
+                {% set comment_count = 'No Comments' %}
+            {% elseif post.comment_count == '1' %}
+                {% set comment_count = post.comment_count ~ ' ' ~ 'Comments' %}
+            {% else %}
+                {% set comment_count = post.comment_count ~ ' ' ~ 'Comments' %}
+            {% endif %}
+
+            {% include '@particles/wpfc-assets/common/views/meta/icon.html.twig' %}
+            {% include '@particles/wpfc-assets/common/views/meta/prefix.html.twig' %}
+
+            {% if meta_comments_enabled == 'link' %}
+                <a href="{{ post.link ~ '#comments' }}" class="wpfc-comments-count">{{ comment_count }}</a>
+            {% else %}
+                <span class="wpfc-comments-count">{{ comment_count }}</span>
+            {% endif %}
+        </div>
+    {% endif %}
+    
+{% endblock %}

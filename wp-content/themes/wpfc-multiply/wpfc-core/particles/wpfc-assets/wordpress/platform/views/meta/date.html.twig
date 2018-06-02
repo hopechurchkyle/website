@@ -1,0 +1,20 @@
+{% set meta_scope = 'date' %}
+{% set meta_date_enabled = meta_date_enabled ?? scope.meta.date.enabled %}
+{% set meta_date_format = meta_date_format ?? scope.meta.date.format %}
+
+{% block meta_date %}
+    {% if meta_date_enabled %}
+        <div class="wpfc-meta-date wpfc-meta-item">
+            {% block meta_date_content %}
+                {% include '@particles/wpfc-assets/common/views/meta/icon.html.twig' %}
+                {% include '@particles/wpfc-assets/common/views/meta/prefix.html.twig' %}
+
+                {% if meta_date_enabled == 'link' %}
+                    <a href="{{ post.link }}" title="{{ post.title }}" class="wpfc-date">{{ post.date|date(meta_date_format) }}</a>
+                {% else %}
+                    <span class="wpfc-date">{{ post.date|date(meta_date_format) }}</span>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

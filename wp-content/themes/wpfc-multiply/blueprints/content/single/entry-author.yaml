@@ -1,0 +1,12 @@
+name: Entry Author
+description: Options for displaying author box
+type: single
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Author Box
+      description: Display author box.
+      default: 1

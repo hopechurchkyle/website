@@ -1,0 +1,6 @@
+name: Meta Service
+description:
+type: sermon-single
+
+extends@:
+  - type: sermon-archive/meta-service

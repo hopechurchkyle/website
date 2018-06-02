@@ -1,0 +1,33 @@
+.wpfc-elementor-sermons.wpfc-style-4 {
+    .wpfc-wrapper {
+        display: flex;
+    }
+    
+    .wpfc-play-button-wrapper {
+        flex: 0 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #ddd;
+        
+        @media(max-width: 1024px) {
+            flex-flow: row wrap;
+            flex: 100%;
+            border-right: 0;
+            border-bottom: 1px solid;
+        }
+    }
+    
+    .wpfc-content {
+        flex: 70%;
+        padding: 1.5rem;
+        
+        @media(max-width: 1024px) {
+            flex: 100%;
+        }
+    }
+    
+    .wpfc-entry-meta {
+        font-size: 0.875rem;
+    }
+}

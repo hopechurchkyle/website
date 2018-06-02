@@ -1,0 +1,20 @@
+{% set entry_content_enabled = entry_content_enabled ?? scope.content.enabled %}
+{% set entry_content_limit = entry_content_limit ?? scope.content.limit %}
+
+{% block entry_content %}
+    {% if entry_content_enabled %}
+        <div class="wpfc-entry-content">
+            {% block entry_content_inner %}
+                {% if entry_content_enabled == 'excerpt' and post.post_excerpt %}
+                    <div class="wpfc-post-excerpt">
+                        {{- post.post_excerpt|apply_filters('the_excerpt')|raw -}}
+                    </div>
+                {% elseif entry_content_enabled == 'content' %}
+                    <div class="wpfc-post-content">
+                        {{- post.content('', entry_content_limit)|raw -}}
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

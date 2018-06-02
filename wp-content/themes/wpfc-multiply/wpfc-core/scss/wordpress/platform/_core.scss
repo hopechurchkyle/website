@@ -1,0 +1,26 @@
+.platform-wordpress {
+    .entries,
+    .entry-wrapper {
+        .entry-meta {
+            .meta-item {
+                display: inline-block;
+                margin: 0 .75rem 0 0;
+                [dir="rtl"] & {
+                    margin: 0 0 0 .75rem;
+                }
+            }
+
+            .meta-icon,
+            .meta-prefix {
+                opacity: .87;
+            }
+
+            a {
+                color: inherit;
+                &:hover {
+                    color: $accent-color-1;
+                }
+            }
+        }
+    }
+}

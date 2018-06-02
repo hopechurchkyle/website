@@ -1,0 +1,46 @@
+// Core Variables
+$content-margin: .625rem;
+$content-padding: .938rem;
+$section-padding: $content-margin + $content-padding;
+$wrapper-padding: 2.5rem;
+
+// Typography
+$font-size: 1rem;
+
+// Colors
+$text-color: #222222; // Base text color
+$off-white: #f7f7f7;
+$border-color: #dfdfdf;
+$color-1: #0073aa; // Links, buttons
+$color-2: #2b3d51; // Secondary color, header and footer background
+$color-3: #1b9db5; // Adjacent color, other elements
+
+// main plugin wrapper
+div.wpfc-manager {
+  // header/nav
+  @import "wpfcm/nav";
+
+  // main content rules
+  @import "wpfcm/main";
+
+  // Licensing and Updates (lau) tab
+  @import "wpfcm/lau";
+
+  // products tab
+  @import "wpfcm/products";
+
+  // support tab
+  @import "wpfcm/support";
+
+  // system status tab
+  @import "wpfcm/systemStatus";
+
+  // footer
+  @import "wpfcm/footer";
+
+  // common styles
+  @import "wpfcm/common";
+}
+
+// misc styles
+@import "wpfcm/misc";

@@ -1,0 +1,13 @@
+{% set sermon_entry_notes_enabled = sermon_entry_notes_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-notes.enabled', '1') %}
+{% set sermon_entry_notes_icon = sermon_entry_notes_icon ?? gantry.config.get('content.' ~ scope ~ '.entry-notes.icon', 'fa fa-sticky-note-o') %}
+
+{% block sermon_entry_notes %}
+    {% if sermon_entry_notes_enabled and fn('get_wpfc_sermon_meta', 'sermon_notes') is not empty %}
+        <div class="entry-notes">
+            <a href="{{ fn('get_wpfc_sermon_meta', 'sermon_notes') }}" target="_blank">
+                <i class="{{ sermon_entry_notes_icon }}"></i>
+                <div>Notes</div>
+            </a>
+        </div>
+    {% endif %}
+{% endblock %}

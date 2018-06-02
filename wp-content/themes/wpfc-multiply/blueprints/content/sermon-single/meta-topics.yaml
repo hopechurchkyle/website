@@ -1,0 +1,6 @@
+name: Meta Topics
+description:
+type: sermon-single
+
+extends@:
+  - type: sermon-archive/meta-topics

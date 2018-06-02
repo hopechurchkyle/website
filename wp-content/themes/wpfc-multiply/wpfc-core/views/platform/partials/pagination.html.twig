@@ -1,0 +1,24 @@
+{% block pagination %}
+    <div class="pagination">  
+        {% block pagination_content %}   
+            <div class="pagination-counter pull-right">
+                {% set current_page = '1' %}
+                {% for page in pagination.pages %}
+                    {% if page.current %}
+                        {% set current_page = page.title %}
+                    {% endif %}
+                {% endfor %}
+
+                <span>{{ __('Page %1$s of %2$s', 'wpfc-core')|format(current_page, pagination.pages|last.name) }}</span>
+            </div>
+            
+            <div class="pagination-links">
+                {% set pagination_args = {
+                    'prev_text': __('Previous'),
+                    'next_text': __('Next')
+                } %}
+                {{ function('paginate_links', pagination_args) }}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

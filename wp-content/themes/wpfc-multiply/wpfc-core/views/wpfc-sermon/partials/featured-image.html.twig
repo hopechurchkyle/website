@@ -1,0 +1,27 @@
+{% set entry_image_enabled = entry_image_enabled ?? gantry.config.get('content.' ~ scope ~ '.featured-image.enabled', '1') %}
+{% set entry_image_link = entry_image_link ?? gantry.config.get('content.' ~ scope ~ '.featured-image.link', '') %}
+{% set entry_image_width = entry_image_width ?? gantry.config.get('content.' ~ scope ~ '.featured-image.width', '1150') %}
+{% set entry_image_height = entry_image_height ?? gantry.config.get('content.' ~ scope ~ '.featured-image.height', '650') %}
+
+{% set sermon_image_args = {
+    'image_size' : 'full',
+    'post_id' : post.ID
+} %}
+{% set sermon_images = image|apply_filters( 'sermon-images-get-the-terms', sermon_image_args) %}
+{% set entry_image = post.thumbnail.src ?? TimberImage(sermon_images.0.image_id).src %}
+
+{% block featured_image %}
+    {% if entry_image_enabled and entry_image %}
+        <div class="post-thumbnail">
+            {% block featured_image_content %}
+                {% if entry_image_link %}
+                    <a href="{{ post.link }}" title="{{ post.title }}">
+                        <img src="{{ entry_image|resize(entry_image_width, entry_image_height) }}" alt="{{ post.title }}">
+                    </a>
+                {% else %}
+                    <img src="{{ entry_image|resize(entry_image_width, entry_image_height) }}" alt="{{ post.title }}">
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

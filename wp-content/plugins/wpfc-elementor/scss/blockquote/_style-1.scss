@@ -1,0 +1,26 @@
+.wpfc-element-blockquote.wpfc-style1 {
+    
+    .wpfc-title {
+        text-transform: uppercase;
+        margin-bottom: .75rem;
+    }
+    
+    .wpfc-content {
+        font-size: 1.75rem;
+        line-height: 1.25;
+        
+        &:before {
+            content: '\f10d';
+            font-family: FontAwesome;
+            position: absolute;
+            left: -50px;
+            font-size: 1.5rem;
+        }
+    }
+    
+    .wpfc-source {
+        text-align: right;
+        margin-top: 1.5rem;
+    }
+
+}

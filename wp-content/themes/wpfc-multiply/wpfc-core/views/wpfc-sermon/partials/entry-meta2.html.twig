@@ -1,0 +1,18 @@
+{% set sermon_meta_preacher_enabled = sermon_meta_preacher_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-preacher.enabled', '1') %}
+{% set sermon_meta_series_enabled = sermon_meta_series_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-series.enabled', '1') %}
+{% set sermon_meta_book_enabled = sermon_meta_book_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-book.enabled', '1') %}
+{% set sermon_meta_service_enabled = sermon_meta_service_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-service.enabled', '1') %}
+{% set sermon_meta_topics_enabled = sermon_meta_topics_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-topics.enabled', '1') %}
+{% set sermon_meta_passage_enabled = sermon_meta_passage_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-passage.enabled', '1') %}
+
+{% block entry_meta %}
+    {% if sermon_meta_series_enabled or sermon_meta_book_enabled or sermon_meta_service_enabled or sermon_meta_topics_enabled or sermon_meta_passage_enabled %}
+        <div class="entry-meta">
+            {% include 'wpfc-sermon/meta/series.html.twig' %}
+            {% include 'wpfc-sermon/meta/book.html.twig' %}
+            {% include 'wpfc-sermon/meta/service.html.twig' %}
+            {% include 'wpfc-sermon/meta/topics.html.twig' %}
+            {% include 'wpfc-sermon/meta/passage.html.twig' %}
+        </div>
+    {% endif %}   
+{% endblock %}

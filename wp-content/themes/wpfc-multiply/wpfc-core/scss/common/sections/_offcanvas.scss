@@ -1,0 +1,24 @@
+#g-offcanvas {
+    color: $offcanvas-color;
+    background: $offcanvas-background;
+    width: $offcanvas-width;
+}
+
+.g-offcanvas-toggle {
+    background: white;
+    color: $base-color;
+    padding: .375rem;
+    z-index: 1001;
+    border: 1px solid $base-border-color;
+}
+
+.g-offcanvas-toggle {
+    @if $offcanvas-toggle-visibility == 1 {
+        display: none;
+        @media only all and (max-width: $breakpoints-mobile-menu-breakpoint) {
+            display: block;
+        }
+    } @else {
+        display: block;
+    }
+}

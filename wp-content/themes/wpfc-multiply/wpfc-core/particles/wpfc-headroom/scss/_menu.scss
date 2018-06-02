@@ -1,0 +1,14 @@
+#g-page-surround {
+    @include breakpoint(no-mobile) {
+        @if $headroom-position == 'overlay-sticky' {
+            .headroom--not-top {
+                &.headroom--pinned {
+                    .g-main-nav .g-toplevel > li > .g-menu-item-container {
+                        color: inherit;
+                        @include transition(none);
+                    }
+                }
+            }
+        }
+    }
+}

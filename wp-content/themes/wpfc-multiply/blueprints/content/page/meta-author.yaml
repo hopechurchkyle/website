@@ -1,0 +1,15 @@
+name: Author Meta
+description: Options for displaying author meta
+type: page
+
+extends@:
+  - type: archive/meta-author
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Display Author
+      description: Display author.
+      default: 0

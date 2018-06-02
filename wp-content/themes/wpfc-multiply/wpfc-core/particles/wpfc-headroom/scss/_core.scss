@@ -1,0 +1,106 @@
+#g-page-surround {
+    @include breakpoint(no-mobile) {
+        
+        .headroom {
+            transition: .3s linear;
+            z-index: 999;
+        }
+ 
+        // Overlay State
+        @if $headroom-position == 'overlay' {
+            .g-wrapper-navigation {
+                position: absolute;
+                left: 0;
+                right: 0;
+            }
+        }
+        
+        // Fixed State
+        @if $headroom-position == 'fixed' {
+            .wpfc-fixed {
+                .headroom {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    
+                    .admin-bar & {
+                        top: 32px;
+                    }
+                }
+            }
+        }
+        
+        // Sticky State
+        @if $headroom-position == 'sticky' {
+            .wpfc-fixed {
+                .headroom {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    
+                    .admin-bar & {
+                        top: 32px;
+                    }
+                }
+            }
+            
+            .headroom--unpinned {
+                transform: translateY(-100%);
+            }
+            
+            .headroom--pinned {
+                transform: translateY(0);
+            }
+        }
+        
+        // Overlay Sticky State
+        @if $headroom-position == 'overlay-sticky' {
+            .g-wrapper-navigation {
+                position: absolute;
+                right: 0;
+                left: 0;
+            }
+            
+            .wpfc-fixed {
+                .headroom {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    
+                    .admin-bar & {
+                        top: 32px;
+                    }
+                }
+            }
+            
+            .headroom--unpinned {
+                transform: translateY(-100%);
+            }
+            
+            .headroom--pinned {
+                transform: translateY(0);
+            }
+            
+            .headroom--not-top {
+                &.headroom--pinned {
+                    @if $headroom-scroll-background {
+                        background: $headroom-scroll-background;
+                    }
+
+                    @if $headroom-scroll-color {
+                        color: $headroom-scroll-color;
+                    }
+                    
+                    .g-main-nav .g-toplevel > li > .g-menu-item-container {
+                        color: inherit;
+                        transition: none;
+                    }
+                }
+            }
+        }
+
+    }
+}

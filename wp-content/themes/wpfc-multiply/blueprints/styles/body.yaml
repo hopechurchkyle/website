@@ -1,0 +1,21 @@
+name: Body Colors
+description: Body Colors
+type: core
+
+extends@: above
+
+form: 
+  fields:
+
+    color:
+      type: input.colorpicker
+      label: Text Color 
+      default: '#181818'
+
+    background:
+      type: input.colorpicker
+      label: Background Color
+      default: '#f5f5f5'
+      
+    background-attachment:
+      default: fixed

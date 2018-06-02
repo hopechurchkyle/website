@@ -1,0 +1,50 @@
+.wpfc-elementor-sermons.wpfc-style-6 {
+    .wpfc-wrapper {
+        display: flex;
+        
+        @media(max-width: 580px) {
+            flex-flow: row wrap;
+        }
+    }
+    
+    .wpfc-content {
+        flex: 80%;
+    }
+    
+    .wpfc-actions {
+        flex: 0 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        @media(max-width: 580px) {
+            flex: 100%;
+            padding: 1.5rem;
+        }
+    }
+    
+    .wpfc-entry-meta {
+        font-size: 0.875rem;
+    }
+    
+    .wpfc-download-button {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+    }
+    
+    .wpfc-download-link {
+        color: inherit;
+    }
+    
+    .wpfc-actions > div:not(:last-child) {
+        margin-right: .25rem;
+    }
+    
+    .wpfc-play-button-wrapper button,
+    .wpfc-download-button {
+        border-radius: 50%;
+    }
+}

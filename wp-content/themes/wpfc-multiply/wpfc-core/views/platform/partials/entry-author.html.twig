@@ -1,0 +1,91 @@
+{% set entry_author_enabled = entry_author_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-author.enabled', '1') %}
+{% set entry_author_avatar_enabled = entry_author_avatar_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-author.avatar.enabled', 'link') %}
+{% set entry_author_website_enabled = entry_author_website_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-author.website', 'show') %}
+{% set entry_author_name_enabled = entry_author_name_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-author.name', 'link') %}
+{% set entry_author_description_enabled = entry_author_description_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-author.description', 'show') %}
+
+{% set entry_author_count_posts_enabled = entry_author_count_posts_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-author.count.posts', 'link') %}
+{% set entry_author_count_posts_nr = function('count_user_posts', author.ID) %}
+{% set entry_author_count_posts_label = entry_author_count_posts_nr > '1' ? entry_author_count_posts_nr ~ ' Posts' : entry_author_count_posts_nr ~ ' Post' %}
+
+{% set entry_author_count_comments_enabled = entry_author_count_comments_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-author.count.comments', '') %}
+
+{% block entry_author %}
+    {% if entry_author_enabled and post.authors %}
+        <div class="entry-author entry-author-singular">
+            {% block entry_author_content %}
+                {% for author in post.authors %}
+                    <div class="entry-author-item">
+                        {# Avatar #}
+                        {% if entry_author_avatar_enabled and author.avatar %} 
+                            <div class="entry-author-avatar">
+                                {% if entry_author_avatar_enabled == 'link' %}
+                                    <a href="{{ author.link }}" title="{{ author.name }}">
+                                        <img src="{{ url(author.avatar) }}" alt="{{ author.name }}">
+                                    </a>
+                                {% else %}
+                                    <img src="{{ url(author.avatar) }}" alt="{{ author.name }}">
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        {# Begin Inner Content #}
+                        <div class="entry-author-inner">
+                            {# Author Name #}
+                            {% if entry_author_name_enabled %}
+                                <h4 class="entry-author-name">
+                                    {% if entry_author_name_enabled == 'link' %}
+                                        <a href="{{ author.link }}" title="{{ author.name }}" class="entry-author-name-text">{{ author.name }}</a>
+                                    {% else %}
+                                        <span class="entry-author-name-text">{{ author.name }}</span>
+                                    {% endif %}
+                                </h4>
+                            {% endif %}
+
+                            {# Author Website #}
+                            {% if entry_author_website_enabled %}
+                                <div class="entry-author-website">
+                                    <a href="{{ author.user_url }}">{{ author.user_url }}</a>
+                                </div>
+                            {% endif %}
+
+                            {# Author Description #}
+                            {% if entry_author_description_enabled %}
+                                <div class="entry-author-description">{{ author.description }}</div>
+                            {% endif %}
+
+                            {% if entry_author_count_posts_enabled or entry_author_count_comments_enabled %}
+                                <div class="entry-author-counters">
+                                    {# Posts Counter #}
+                                    {% if entry_author_count_posts_enabled %}
+                                        <div class="entry-author-posts">
+                                            {% if entry_author_count_posts_enabled == 'link' %}
+                                                <a href="{{ author.link }}" title="{{ author.name }}" class="entry-author-posts-text">
+                                                    {{- entry_author_count_posts_label -}}
+                                                </a>
+                                            {% else %}
+                                                <span class="entry-author-posts-text">{{ entry_author_count_posts_label }}</span>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+
+                                    {# Comments Counter #}
+                                    {% if entry_author_count_comments_enabled %}
+                                        <div class="entry-author-comments">
+                                            {% if entry_author_count_comments_enabled == 'link' %}
+                                                <a href="{{ author.link }}" title="{{ author.name }}" class="entry-author-comments-text"></a>
+                                            {% else %}
+                                                <span class="entry-author-comments-text"></span>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

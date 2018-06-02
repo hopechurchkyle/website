@@ -1,0 +1,41 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block javascript_footer %}
+    {% if particle.enabled %}
+        <script src="{{ url("gantry-theme://particles/wpfc-headroom/js/headroom.min.js") }}"></script>
+        <script>
+            (function() {
+                // Declare variables
+                var selector = document.querySelector("{{ particle.selector }}");
+                var wrapper = document.querySelector("{{ particle.wrapper }}");
+                var offsetTop = wrapper.offsetTop;
+                
+                // Add class when navigation bar touches top
+                window.onscroll = function() {
+                    if (window.pageYOffset >= offsetTop) {
+                        wrapper.classList.add('wpfc-fixed');
+                    } else {
+                        wrapper.classList.remove('wpfc-fixed');
+                    }
+                }
+                
+                // Add wrapper height
+                wrapper.style.height = selector.offsetHeight + 'px';
+                
+                // Update wrapper height on resize
+                window.onresize = function() {
+                    wrapper.style.height = selector.offsetHeight + 'px';
+                }
+                
+                // Construct an instance of Headroom
+                var headroom = new Headroom(selector, {
+                    "offset": offsetTop + {{ particle.offset }},
+                    "tolerance": 5
+                });
+                
+                // Initialize headroom
+                headroom.init();
+            })();
+        </script>
+    {% endif %}
+{% endblock %}

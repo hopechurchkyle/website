@@ -1,0 +1,14 @@
+.support {
+  .support.options {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .support.option {
+    flex: 33% 0 1;
+
+    h3 > .dashicons {
+      margin-right: 5px;
+    }
+  }
+}

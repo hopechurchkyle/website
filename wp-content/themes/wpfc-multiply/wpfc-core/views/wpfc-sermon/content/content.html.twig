@@ -1,0 +1,34 @@
+<article class="{{ post.class }} {{ class_block }}">
+    <div class="{{ class_content }}">
+        
+        {% block content %}
+
+            {# Begin Featured Image #}
+            {% include 'wpfc-sermon/partials/featured-image.html.twig' %}
+
+            {# Begin Entry Inner #}
+            <div class="entry-inner">
+
+                {# Avatar #}
+                {% include 'wpfc-sermon/meta/avatar.html.twig' %}
+
+                {# Date #}
+                {% include 'wpfc-sermon/meta/date.html.twig' %}
+
+                {# Title #}
+                {% include 'platform/partials/entry-title.html.twig' %}
+
+                {# Meta #}
+                {% include 'wpfc-sermon/meta/preacher.html.twig' %}
+                {% include 'wpfc-sermon/meta/series.html.twig' %}
+                {% include 'wpfc-sermon/meta/book.html.twig' %}
+                {% include 'wpfc-sermon/meta/service.html.twig' %}
+                {% include 'wpfc-sermon/meta/topics.html.twig' %}
+                {% include 'wpfc-sermon/meta/passage.html.twig' %}
+
+            </div>
+            
+        {% endblock %}
+        
+    </div>
+</article>

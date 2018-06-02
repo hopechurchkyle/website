@@ -1,0 +1,114 @@
+.platform-wpfc-sermon {
+    .entries {
+        margin: (-$section-padding) (-$content-margin);
+
+        .g-flushed & {
+            margin: 0;
+        }
+
+        .g-content {
+            margin: $section-padding $content-margin;
+            padding: 0;
+            box-shadow: 0 0 6px 2px rgba(0, 0, 0, .1);
+            background: $white;
+            color: $base-color;
+        }
+
+        // Style Content 2
+        &.wpfc-style-content2 {
+            .g-content {
+                @include display(flex);
+
+                @include breakpoint(no-desktop) {
+                    @include flex-flow(row wrap);
+                }
+            }
+
+            .entry-date {
+                @include flex(15%);
+                
+                @include breakpoint(no-desktop) {
+                    @include flex(100%);
+                    padding: 1.5rem;
+                }
+            }
+
+            .entry-header {
+                @include flex(100%);
+                padding: 1.5rem;
+            }
+
+            .entry-readmore {
+                @include flex(10%);
+
+                @include breakpoint(no-desktop) {
+                    @include flex(100%);
+                    padding: 1.5rem;
+                }
+            }
+
+            .entry-date,
+            .entry-readmore {
+                position: relative;
+            }
+
+            .date,
+            .entry-readmore-button {
+                @include display(flex);
+                @include justify-content(center);
+                @include align-items(center);
+                text-align: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                @include transition(.2s);
+            }
+            
+            .date {
+                background: $accent-color-1;
+                color: $white;
+            }
+            
+            .entry-readmore-button {
+                background: $off-white;
+                color: $base-color;
+            }
+
+            a.date,
+            a.entry-readmore-button {
+                &:hover {
+                    background: darken($accent-color-1, 16%);
+                    color: $white;
+                }
+            }
+
+            .entry-title {
+                margin: 0;
+
+                a {
+                    color: inherit;
+                    &:hover {
+                        color: $accent-color-1;
+                    }
+                }
+            }
+
+            .entry-meta {
+                margin: .75rem 0 0;
+                .meta-item {
+                    display: inline-block;
+                    margin: 0 1rem 0 0 ;
+                    &:last-child {
+                        margin: 0;
+                    }
+                }
+                
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

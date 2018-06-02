@@ -1,0 +1,12 @@
+#g-top {
+    position: relative;
+    color: $top-color;
+    background: $top-background;
+    @if $top-background-image {
+        background-image: url($top-background-image);
+        background-size: unquote($top-background-size);
+        background-repeat: unquote($top-background-repeat);
+        background-position: unquote($top-background-position);
+        background-attachment: unquote($top-background-attachment);
+    }
+}

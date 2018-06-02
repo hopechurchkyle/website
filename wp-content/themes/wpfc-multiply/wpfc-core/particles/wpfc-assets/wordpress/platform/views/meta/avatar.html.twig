@@ -1,0 +1,19 @@
+{% set meta_avatar_enabled = meta_avatar_enabled ?? scope.meta.avatar.enabled %}
+
+{% block meta_avatar %}
+    {% if meta_avatar_enabled and post.authors[0].avatar %}
+        <div class="wpfc-meta-avatar wpfc-meta-item">
+            {% block meta_avatar_content %}
+                {% for author in post.authors %}
+                    {% if meta_avatar_enabled == 'link' %}
+                        <a href="{{ author.link }}" title="{{ author.name }}" class="wpfc-avatar">
+                            <img src="{{ url(author.avatar) }}" alt="{{ author.name }}">
+                        </a>
+                    {% else %}
+                        <img src="{{ url(author.avatar) }}" alt="{{ author.name }}">
+                    {% endif %}
+                {% endfor %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

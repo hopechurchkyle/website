@@ -1,0 +1,9 @@
+{% set particle_type = particle_type ?? '' %}
+
+{% block meta_comments_type %}
+    {% if particle_type == 'static' %}
+        {% include '@particles/wpfc-assets/common/views/meta/comments.html.twig' %}
+    {% else %}
+        {% include '@particles/wpfc-assets/wordpress/platform/views/meta/comments.html.twig' %}
+    {% endif %}
+{% endblock %}

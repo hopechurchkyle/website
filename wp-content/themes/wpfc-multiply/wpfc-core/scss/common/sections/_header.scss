@@ -1,0 +1,12 @@
+#g-header {
+    position: relative;
+    color: $header-color;
+    background: $header-background;
+    @if $header-background-image {
+        background-image: url($header-background-image);
+        background-size: unquote($header-background-size);
+        background-repeat: unquote($header-background-repeat);
+        background-position: unquote($header-background-position);
+        background-attachment: unquote($header-background-attachment);
+    }
+}

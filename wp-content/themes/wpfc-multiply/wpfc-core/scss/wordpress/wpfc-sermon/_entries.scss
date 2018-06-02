@@ -1,0 +1,21 @@
+.platform-wpfc-sermon {
+    .entries {
+        margin: (-$section-padding) (-$content-margin);
+
+        .g-flushed & {
+            margin: 0;
+        }
+
+        .g-content {
+            margin: $section-padding $content-margin;
+            padding: 0;
+            box-shadow: 0 0 6px 2px rgba(0, 0, 0, .1);
+            background: $white;
+            color: $base-color;
+        }
+        
+        > article {
+            margin: 0
+        }
+    }
+}

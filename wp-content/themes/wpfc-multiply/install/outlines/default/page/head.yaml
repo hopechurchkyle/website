@@ -1,0 +1,12 @@
+meta: {  }
+head_bottom: ''
+atoms:
+  -
+    title: Headroom
+    type: wpfc-headroom
+    attributes:
+      enabled: true
+      selector: '#g-navigation'
+      wrapper: '#g-wrapper-navigation'
+      offset: 300
+    id: wpfc-headroom-4373

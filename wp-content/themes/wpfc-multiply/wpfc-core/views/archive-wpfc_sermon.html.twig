@@ -1,0 +1,13 @@
+{% extends "base-archive.html.twig" %}
+{% set twigTemplate = 'sermon-archive.html.twig' %}
+
+{% set scope = 'sermon-archive' %}
+{% set platform_class = 'platform-wpfc-sermon' %}
+{% set content = gantry.config.get('content.' ~ scope ~ '.general.content', 'content') %}
+{% set route = 'wpfc-sermon' %}
+{% set class_grid = ['g-grid', 'wpfc-style-' ~ content]|join(' ') %}
+
+{% block header %}
+    {% include 'platform/partials/page-header.html.twig' %}
+    {% include 'wpfc-sermon/partials/sermon-sorting.html.twig' %}
+{% endblock %}

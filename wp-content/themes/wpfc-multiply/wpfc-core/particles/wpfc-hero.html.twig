@@ -1,0 +1,31 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+
+    {# Shortcuts #}
+    {% set scope = particle %}
+    {% set settings = particle.settings %}
+
+    {# Set Post #}
+    {% set post = wordpress.call('Timber::get_post') %}
+
+    {# Variables #}
+    {% set content = settings.style %}
+    {% set class_inner_wrapper = ' wpfc-container' %}
+    {% set item_height = settings.height ? 'height:' ~ settings.height ~ ';' : '' %}
+    {% set item_background = settings.background ? 'background-color:' ~ settings.background ~ ';' : '' %}
+    {% set item_color = settings.color ? 'color:' ~ settings.color ~ ';' : '' %}
+    {% set item_inline_style = [item_height, item_background, item_color]|join('') %}
+    
+    {# Main content #}
+    {% if function('is_single') %}
+        <div class="{{ id }} wpfc-style-{{ content }}">
+            {% block particle_content %}
+                <div class="wpfc-items">
+                    {% include '@particles/wpfc-hero/views/content/' ~ content ~ '.html.twig' %}
+                </div>
+            {% endblock %}
+        </div>
+    {% endif %}
+
+{% endblock %}

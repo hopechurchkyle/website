@@ -1,0 +1,6 @@
+<root>
+    <params name="filter" label="Filter">
+        <param name="channel-id" label="Channel ID - optional" type="text" default="" style="width:400px;"/>
+        <param name="playlist-id" label="Playlist" type="youtubeplaylistbyuser" default=""/>
+    </params>
+</root>

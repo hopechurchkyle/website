@@ -1,0 +1,12 @@
+#g-addons {
+    position: relative;
+    color: $addons-color;
+    background: $addons-background;
+    @if $addons-background-image {
+        background-image: url($addons-background-image);
+        background-size: unquote($addons-background-size);
+        background-repeat: unquote($addons-background-repeat);
+        background-position: unquote($addons-background-position);
+        background-attachment: unquote($addons-background-attachment);
+    }
+}

@@ -1,0 +1,6 @@
+name: Meta Preacher
+description:
+type: sermon-single
+
+extends@:
+  - type: sermon-archive/meta-preacher

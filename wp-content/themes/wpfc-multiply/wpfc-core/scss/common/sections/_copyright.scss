@@ -1,0 +1,12 @@
+#g-copyright {
+    position: relative;
+    color: $copyright-color;
+    background: $copyright-background;
+    @if $copyright-background-image {
+        background-image: url($copyright-background-image);
+        background-size: unquote($copyright-background-size);
+        background-repeat: unquote($copyright-background-repeat);
+        background-position: unquote($copyright-background-position);
+        background-attachment: unquote($copyright-background-attachment);
+    }
+}

@@ -1,0 +1,27 @@
+{% block content %}
+    <div class="wpfc-item" style="{{ item_inline_style }}">
+
+        {# Featured Image #}
+        {% include '@particles/wpfc-assets/wordpress/platform/views/partials/background-image.html.twig' %}
+
+        {# Content Wrapper #}
+        <div class="wpfc-inner-wrapper {{- class_inner_wrapper }}">
+            <div class="wpfc-inner">
+
+                {# Title #}
+                {% include '@particles/wpfc-assets/wordpress/platform/views/partials/entry-title.html.twig' %}
+
+                {# Meta #}
+                {% include '@particles/wpfc-assets/wordpress/platform/views/partials/entry-meta.html.twig' %}
+
+                {# Content #}
+                {% include '@particles/wpfc-assets/wordpress/platform/views/partials/entry-content.html.twig' %}
+
+                {# Read More #}
+                {% include '@particles/wpfc-assets/wordpress/platform/views/partials/readmore.html.twig' %}
+                
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

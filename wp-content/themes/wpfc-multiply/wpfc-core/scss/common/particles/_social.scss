@@ -1,0 +1,11 @@
+.g-social {
+    a {
+        display: inline-block;
+        color: inherit;
+        margin: 0 .75rem .25rem 0;
+        
+        [dir="rtl"] & {
+            margin: 0 0 .25rem .75rem;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{% set particle_header_image = particle_header_image ?? scope.header.image %}
+{% set particle_header_title_text = particle_header_title_text ?? scope.header.title.text %}
+{% set particle_header_title_tag = particle_header_title_tag ?? scope.header.title.tag|default('h4') %}
+{% set particle_header_description_text = particle_header_description_text ?? scope.header.description.text %}
+
+{% block particle_header %}
+    {% if particle_header_title_text or particle_header_description_text %}
+        <div class="wpfc-particle-header">
+            {% block particle_header_content %}
+               {% if particle_header_image %}
+                   <div class="wpfc-image">
+                       <img src="{{ url(particle_header_image) }}">
+                   </div>
+               {% endif %}
+               
+                {# Begin Particle Title #}
+                {% if particle_header_title_text %}
+                    <{{ particle_header_title_tag }} class="wpfc-widget-title">
+                        <span>{{ particle_header_title_text|raw }}</span>
+                    </{{ particle_header_title_tag }}>
+                {% endif %}
+
+                {# Begin Particle Description #}
+                {% if particle_header_description_text %}
+                    <div class="wpfc-description">{{ particle_header_description_text|raw }}</div>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

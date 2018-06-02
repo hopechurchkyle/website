@@ -1,0 +1,83 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+{% block javascript %}
+    {{ parent() }}
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('body').append('<div id="loginclick" class="wpfc-login-atom wpfc-popup-{{ particle.position }}" onclick="doLogin(true)"><i id="loginclick" class="{{ particle.icon|default("fa fa-sign-in") }}" aria-hidden="true"></i></div>');
+            jQuery('body').append('<div class="wpfc-login-wrapper"></div>');
+            jQuery('body').append('<div class="wpfc-login"></div>');
+            {% if not is_user_logged_in %}
+            {% if particle.login_text %}
+            jQuery('.wpfc-popup-{{ particle.position }}').append('<span>{{ particle.login_text }}</span>');
+            {% endif %}
+            jQuery('.wpfc-login').append('<form action="{{ function("wp_login_url", gantry.request.server["REQUEST_URI"])|raw }}" method="post" id="wpfc-loginform">' +
+                    '{% do function("wp_nonce_field", "log-in") %}' +
+                    '<fieldset class="login-data">' +
+                    '<input id="username" placeholder="{{ __("User Name", "gantry5") }}" type="text" name="log" class="inputbox" alt="username" size="18" value="" />' +
+                    '<input id="passwd" type="password" placeholder="{{ __("Password", "gantry5") }}" name="pwd" class="inputbox" size="18" alt="password" value="" />' +
+                    '<input id="remember" type="checkbox" name="rememberme" class="inputbox" />' +
+                    '{{ __("Remember me", "gantry5") }}' +
+                    '<input id="submit" type="submit" value="{{ __("Log In", "gantry5") }}" class="button" name="submit" />' +
+                    '</fieldset>' +
+                    '</form>' +
+                    '<i class="fa fa-times" aria-hidden="true" onclick="doLogin(false)"></i>');
+            jQuery('#wpfc-loginform #submit').on('click', function () {
+                jQuery('#wpfc-loginform').hide("slow", function () {
+                    jQuery('.wpfc-login-show').append('<i style="font-size: 1.6rem; text-align: center; width:100%" class="changes-indicator fa fa-circle-o fa-fw" aria-hidden="true"></i>').show("slow");
+                });
+            });
+            jQuery('.wpfc-login-wrapper').on('click', function () {
+                doLogin(false);
+            });
+            {% else %}
+            {% if particle.logout_text %}
+            jQuery('.wpfc-popup-{{ particle.position }}').append('<span id="loginclick">{{ particle.logout_text }}</span>');
+            {% endif %}
+            jQuery('.wpfc-popup-{{ particle.position }}').append('<form style="display: none;" action="{{ function("wp_logout_url", gantry.request.server["REQUEST_URI"])|raw }}" method="post" id="wpfc-loginform">' +
+                    '{% do function("wp_nonce_field", "log-out") %}' +
+                    '</form>');
+            jQuery('div').not('.wpfc-login-atom').on('click', function () {
+                jQuery('.wpfc-login-atom').attr('style', '');
+                jQuery('.wpfc-login-atom span').replaceWith('<span id="loginclick">{{ particle.logout_text }}</span>');
+                jQuery('.wpfc-login-atom i').removeClass();
+                jQuery('.wpfc-login-atom i').addClass('{{ particle.icon|default("fa fa-sign-in") }}');
+                jQuery('.wpfc-login-atom').removeClass('wpfc-login-confirm');
+            });
+            {% endif %}
+        });
+        function doLogin(show) {
+            {% if is_user_logged_in %}
+            show = false;
+            if (jQuery('.wpfc-login-confirm').length == 0) {
+                jQuery('.wpfc-login-atom span').replaceWith('<span id="loginclick">Confirm</span>');
+                jQuery('.wpfc-login-atom').css({
+                    'background': '#cc0000',
+                    'transform': 'translateX(0)',
+                    'font-size': '1.2em',
+                    'padding': '0.5rem',
+                    'font-weight': '400'
+                });
+                jQuery('.wpfc-login-atom i').removeClass();
+                jQuery('.wpfc-login-atom i').addClass('changes-indicator fa fa-circle-o fa-fw');
+                jQuery('.wpfc-login-atom').addClass('wpfc-login-confirm');
+            } else {
+                jQuery('.wpfc-login-atom span').remove();
+                jQuery('.wpfc-login-atom').css('font-size', '0.5rem');
+                jQuery('.wpfc-login-atom i').removeClass();
+                jQuery('.wpfc-login-atom i').addClass('fa fa-spinner fa-pulse fa-3x fa-fw');
+                document.getElementById("wpfc-loginform").submit();
+            }
+            {% endif %}
+            if (show === true) {
+                jQuery('.wpfc-login-wrapper').addClass('wpfc-login-wrapper-show').removeClass('wpfc-login-wrapper');
+                jQuery('.wpfc-login').addClass('wpfc-login-show').removeClass('wpfc-login');
+            } else {
+                jQuery('.wpfc-login-wrapper-show').addClass('wpfc-login-wrapper').removeClass('wpfc-login-wrapper-show');
+                jQuery('.wpfc-login-show').addClass('wpfc-login').removeClass('wpfc-login-show');
+            }
+        }
+    </script>
+{% endblock %}
+{% block contents %}
+    tesst
+{% endblock %}

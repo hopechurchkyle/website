@@ -1,0 +1,27 @@
+// Content Block
+$content-margin: 0.625rem !default;
+$content-padding: 0.938rem !default;
+$section-padding: 1.5rem !default;
+
+// Headroom
+$headroom-position: default !default;
+
+// Menu
+$menu-col-width: 12rem !default;
+$menu-offset-y: $content-margin + $content-padding !default;
+$menu-font-size: 1rem !default;
+$menu-subitem-font-size: .875rem !default;
+
+// Offcanvas
+$offcanvas-width: 17rem !default;
+$offcanvas-toggle-visibility: 1 !default;
+
+// Width
+$width-large-desktop-container: 100% !default;
+$width-desktop-container: 100% !default;
+$width-tablet-container: 100% !default;
+$width-large-mobile-container: 100% !default;
+$width-mobile-container: 100% !default;
+
+// Elementor
+$elementor-grid-fix: 1 !default;

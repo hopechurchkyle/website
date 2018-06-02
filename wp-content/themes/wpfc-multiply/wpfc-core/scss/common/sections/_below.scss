@@ -1,0 +1,12 @@
+#g-below {
+    position: relative;
+    color: $below-color;
+    background: $below-background;
+    @if $below-background-image {
+        background-image: url($below-background-image);
+        background-size: unquote($below-background-size);
+        background-repeat: unquote($below-background-repeat);
+        background-position: unquote($below-background-position);
+        background-attachment: unquote($below-background-attachment);
+    }
+}

@@ -1,0 +1,12 @@
+#g-showcase {
+    position: relative;
+    color: $showcase-color;
+    background: $showcase-background;
+    @if $showcase-background-image {
+        background-image: url($showcase-background-image);
+        background-size: unquote($showcase-background-size);
+        background-repeat: unquote($showcase-background-repeat);
+        background-position: unquote($showcase-background-position);
+        background-attachment: unquote($showcase-background-attachment);
+    }
+}

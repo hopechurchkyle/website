@@ -1,0 +1,14 @@
+{% set sermon_entry_content_enabled = sermon_entry_content_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-content.enabled', '1') %}
+{% set sermon_entry_content_limit = sermon_entry_content_limit ?: (gantry.config.get('content.' ~ scope ~ '.entry-content.limit') ?: '50') %}
+
+{% block sermon_entry_content %}
+    {% if sermon_entry_content_enabled %}
+        <div class="entry-content">
+            {% if fn('is_singular') %}
+                {{ post.meta('sermon_description')|wpautop|raw }}
+            {% else %}
+                {{ post.meta('sermon_description')|truncate(sermon_entry_content_limit)|wpautop|raw }}
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+.platform-content {
+    .page-header {
+        margin: 0 0 3rem 0;
+    }
+
+    .page-header-title {
+        margin-top: 0;
+    }
+
+    .page-header-description {
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

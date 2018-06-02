@@ -1,0 +1,12 @@
+#g-footer {
+    position: relative;
+    color: $footer-color;
+    background: $footer-background;
+    @if $footer-background-image {
+        background-image: url($footer-background-image);
+        background-size: unquote($footer-background-size);
+        background-repeat: unquote($footer-background-repeat);
+        background-position: unquote($footer-background-position);
+        background-attachment: unquote($footer-background-attachment);
+    }
+}

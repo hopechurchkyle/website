@@ -1,0 +1,37 @@
+textarea, select[multiple=multiple] {
+    background-color: white;
+	border: 1px solid $base-border-color;
+    &:focus {
+        border-color: $accent-color-1;
+    }
+}
+
+input.button {
+    border: 1px solid transparent;
+}
+
+textarea {
+    width: 100%;
+}
+
+fieldset.input {
+    margin: 0;
+    padding: 0;
+}
+
+#{$all-text-inputs} {
+    @include transition(border-color .2s);
+    background-color: white;
+    border: 1px solid $base-border-color;
+    vertical-align: middle;
+    padding: 0.5rem;
+    font-size: $core-font-size;
+    line-height: $core-line-height;
+    border-radius: 0;
+    width: 100%;
+    box-shadow: none;
+}
+
+#{$all-text-inputs-focus} {
+	border-color: $accent-color-1;
+}

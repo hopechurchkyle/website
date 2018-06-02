@@ -1,0 +1,17 @@
+<root>
+    <params name="filter" label="Filter">
+        <param type="text" name="page" label="Page" default="Nextendweb"/>
+        <param type="radio" name="endpoint" label="Type" default="posts">
+            <option value="posts">Posts</option>
+            <option value="feed">Feed</option>
+            <!-- statuses field is deprecated for versions v2.4 and higher
+            <option value="statuses">Statuses</option> -->
+        </param>
+        <param name="" value="" type="group" label="Configuration">
+            <param name="dateformat" label="Date format" type="text" default="Y-m-d"/>
+            <param name="sourcetranslatedate" default="January->January||February->February||March->March" type="textarea" style2="width:300px;height: 100px;" label="Translate date and time"/>
+            <param name="timeformat" label="Time format" type="text" default="H:i:s"/>
+            <param name="remove_spec_chars" label="Remove special characters" type="onoff" default="0"/>
+        </param>
+    </params>
+</root>

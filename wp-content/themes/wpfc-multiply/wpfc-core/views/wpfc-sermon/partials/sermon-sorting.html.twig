@@ -1,0 +1,11 @@
+{% set sermon_sorting_enabled = sermon_sorting_enabled ?? gantry.config.get('content.' ~ scope ~ '.general.sorting', '1') %}
+
+{% block sermon_sorting %}
+    {% if sermon_sorting_enabled %}
+        {% if function('function_exists', 'render_wpfc_sorting') %}
+            {{ function('render_wpfc_sorting') }}
+        {% else %}
+            {{ gantry.Sermon_Manager_Template_Tags.render_wpfc_sorting }}
+        {% endif %}
+    {% endif %}
+{% endblock %}

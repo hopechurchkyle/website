@@ -1,0 +1,12 @@
+#g-utility {
+    position: relative;
+    color: $utility-color;
+    background: $utility-background;
+    @if $utility-background-image {
+        background-image: url($utility-background-image);
+        background-size: unquote($utility-background-size);
+        background-repeat: unquote($utility-background-repeat);
+        background-position: unquote($utility-background-position);
+        background-attachment: unquote($utility-background-attachment);
+    }
+}

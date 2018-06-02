@@ -1,0 +1,36 @@
+{% set twigTemplate = 'content-page.html.twig' %}
+
+<article class="{{ post.class }}">
+
+    {% block content %}
+        
+        {# Begin Entry Wrapper #}
+        <div class="entry-wrapper">
+
+            {# Begin Featured Image #}
+            {% include 'platform/partials/featured-image.html.twig' %}
+
+            {# Begin Entry Inner #}
+            <div class="entry-inner">
+        
+                {# Begin Entry Header #}
+                {% include 'platform/partials/entry-header.html.twig' %}
+
+                {# Begin Entry Content #}
+                {% include 'platform/partials/paged-content-pass.html.twig' %}
+
+            </div>
+            {# End Entry Inner #}
+
+        </div>
+        {# End Entry Wrapper #}
+
+        {# Begin Entry Author #}
+        {% include 'platform/partials/entry-author.html.twig' %}
+
+        {# Begin Entry Navigation #}
+        {% include 'platform/partials/entry-nav.html.twig' %}
+
+    {% endblock %}
+    
+</article>

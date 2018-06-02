@@ -1,0 +1,23 @@
+{% set meta_scope = meta_scope ?? 'preacher' %}
+{% set sermon_meta_preacher_enabled = sermon_meta_preacher ?? scope.meta.preacher.enabled  %}
+
+{% block sermon_meta_preacher %}
+    {% if sermon_meta_preacher_enabled and post.terms('wpfc_preacher') %}
+        <div class="wpfc-meta-preacher wpfc-meta-item">
+            {% block sermon_meta_preacher_content %}
+                {% include '@particles/wpfc-assets/common/views/meta/icon.html.twig' %}
+                {% include '@particles/wpfc-assets/common/views/meta/prefix.html.twig' %}
+                
+                <span class="wpfc-preacher">
+                    {% for preacher in post.terms('wpfc_preacher') %}
+                        {% if sermon_meta_preacher_enabled == 'link' %}
+                            <a href="{{ preacher.link }}" title="{{ preacher.name }}" class="wpfc-single-preacher">{{ preacher.name }}</a>
+                        {% else %}
+                            <span class="wpfc-single-preacher">{{ preacher.name }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

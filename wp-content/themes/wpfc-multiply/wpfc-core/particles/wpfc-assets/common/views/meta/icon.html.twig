@@ -1,0 +1,9 @@
+{% set meta_icon = meta_icon ?? scope.meta[meta_scope].icon %}
+
+{% block meta_icon %}
+    {% if meta_icon %}
+        <span class="wpfc-meta-icon">
+            <i class="{{ meta_icon }}"></i>
+        </span>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,24 @@
+<article class="{{ post.class }} {{ class_block }}">
+    <div class="{{ class_content }}">
+        
+        {% block content %}
+
+            <div class="entry-date">
+                {% include 'wpfc-sermon/meta/date.html.twig' %}
+            </div>
+
+            <div class="entry-header">
+                {% include 'platform/partials/entry-title.html.twig' %}
+                {% include 'wpfc-sermon/partials/entry-meta.html.twig' %}
+            </div>
+
+            <div class="entry-readmore">
+                <a href="{{ post.link }}" class="entry-readmore-button">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        {% endblock %}
+        
+    </div>
+</article>

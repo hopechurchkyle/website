@@ -1,0 +1,6 @@
+name: Page Header
+description: Options for displaying Page Header
+type: blog
+
+extends@:
+  - type: archive/page-header

@@ -1,0 +1,19 @@
+{% set sermon_get_images = image|apply_filters( 'sermon-images-get-the-terms', post.ID) %}
+{% set sermon_image = post.thumbnail.src ?? TimberImage(sermon_get_images.0.image_id).src %}
+
+{% set background_image_enabled = background_image_enabled ?? scope.image.enabled %}
+{% set background_image = 'background-image: url(' ~ sermon_image ~ ');' %}
+{% set background_size = scope.image.background.size ? 'background-size:' ~ scope.image.background.size ~ ';' : '' %}
+{% set background_repeat = scope.image.background.repeat ? 'background-repeat:' ~ scope.image.background.repeat ~ ';' : '' %}
+{% set background_position = scope.image.background.position ? 'background-position:' ~ scope.image.background.position ~ ';' : '' %}
+{% set background_inline_style = [background_image, background_size, background_repeat, background_position]|join('') %}
+{% set background_overlay_enabled = background_overlay_enabled ?? scope.image.overlay.enabled %}
+
+{% block background_image %}
+    {% if background_image_enabled %}
+        <div class="wpfc-post-thumbnail">
+            {% if sermon_image %}<div class="wpfc-background-image" style="{{ background_inline_style }}"></div>{% endif %}
+            {% if background_overlay_enabled %}<div class="wpfc-background-overlay"></div>{% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

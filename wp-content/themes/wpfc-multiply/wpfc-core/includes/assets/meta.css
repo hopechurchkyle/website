@@ -1,0 +1,45 @@
+#wpfc-metabox > h2.hndle {
+  background: #4c9ce0;
+  color: #fff; }
+#wpfc-metabox .toggle-indicator::before {
+  color: #fff; }
+#wpfc-metabox .inside h2 {
+  letter-spacing: 1px;
+  border-bottom: 1px solid #eee;
+  padding-left: 0; }
+#wpfc-metabox .inside th {
+  padding: 1rem 1rem 1rem 0;
+  text-align: left;
+  width: 25%; }
+  #wpfc-metabox .inside th .description {
+    display: block;
+    font-weight: 400; }
+#wpfc-metabox .inside td {
+  display: block;
+  padding-top: 1rem;
+  width: 40%; }
+#wpfc-metabox .meta-table {
+  width: 100%; }
+#wpfc-metabox input[type=text],
+#wpfc-metabox input[type=search],
+#wpfc-metabox input[type=radio],
+#wpfc-metabox input[type=tel],
+#wpfc-metabox input[type=time],
+#wpfc-metabox input[type=url],
+#wpfc-metabox input[type=week],
+#wpfc-metabox input[type=password],
+#wpfc-metabox input[type=color],
+#wpfc-metabox input[type=date],
+#wpfc-metabox input[type=datetime],
+#wpfc-metabox input[type=datetime-local],
+#wpfc-metabox input[type=email],
+#wpfc-metabox input[type=month],
+#wpfc-metabox input[type=number],
+#wpfc-metabox select,
+#wpfc-metabox textarea {
+  min-width: 250px;
+  width: 100%; }
+#wpfc-metabox .wp-picker-active input[type=text] {
+  display: none !important; }
+
+/*# sourceMappingURL=meta.css.map */

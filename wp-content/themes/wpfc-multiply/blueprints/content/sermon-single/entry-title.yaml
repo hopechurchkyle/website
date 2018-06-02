@@ -1,0 +1,12 @@
+name: Post Title
+description: Options for displaying title
+type: sermon-single
+
+extends@:
+  - type: archive/entry-title
+
+form:
+  fields:
+    
+    link:
+      unset@: true

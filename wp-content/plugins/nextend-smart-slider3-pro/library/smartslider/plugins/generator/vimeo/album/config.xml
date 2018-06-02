@@ -1,0 +1,5 @@
+<root>
+    <params name="filter" label="Filter">
+        <param name="album" label="Album" type="vimeoalbums" default=""/>
+    </params>
+</root>

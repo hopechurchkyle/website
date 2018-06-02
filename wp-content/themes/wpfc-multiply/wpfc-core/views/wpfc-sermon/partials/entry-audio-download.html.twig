@@ -1,0 +1,7 @@
+{% set sermon_entry_audio_download_enabled = sermon_entry_audio_download_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-audio-download.enabled', '1') %}
+
+{% block sermon_entry_audio_download %}
+    {% if sermon_entry_audio_download_enabled %}
+        <a class="entry-audio-download fa fa-download" href="{{ fn('get_wpfc_sermon_meta', 'sermon_audio') }}" download="{{ fn('basename', fn('get_wpfc_sermon_meta', 'sermon_audio')) }}"></a>
+    {% endif %}
+{% endblock %}

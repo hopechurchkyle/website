@@ -1,0 +1,29 @@
+// REQUIRED DEPENDENCIES - DO NOT CHANGE
+@import "dependencies";
+@import "nucleus/theme/alerts";
+@import "wordpress/theme/base";
+
+//-------------------------------------------
+
+// CORE STYLING
+
+// WordPress Styling
+@import "wordpress/platform/base";
+
+// Tribe Events
+@import "wordpress/tribe-events/base";
+
+// Sermons
+@import "wordpress/wpfc-sermon/base";
+
+// Elementor
+@import "wordpress/elementor";
+
+//-------------------------------------------
+
+// THEME STYLING
+
+// Elementor
+@import "multiply-wordpress/elementor";
+
+//-------------------------------------------

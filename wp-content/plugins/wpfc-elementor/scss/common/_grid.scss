@@ -1,0 +1,16 @@
+.wpfc-grid {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.wpfc-block {
+    flex: 1;
+}
+
+.wpfc-equal-height {
+    display: flex;
+}
+
+.wpfc-equal-height .wpfc-block-content {
+    width: 100%;
+}

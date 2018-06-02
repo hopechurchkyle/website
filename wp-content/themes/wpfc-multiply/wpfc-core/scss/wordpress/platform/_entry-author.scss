@@ -1,0 +1,45 @@
+.entry-author {
+    margin: 3rem 0 0;
+
+    .entry-author-item {
+        margin: 0 0 1.5rem 0;
+        padding: 1.5rem;
+        border: 1px solid $base-border-color;
+        @include display(flex);
+
+        &:last-child {
+            margin: 0;
+        }
+
+        .entry-author-avatar {
+            @include flex(none);
+            margin: 0 1.5rem 0 0;
+            [dir="rtl"] & {
+                margin: 0 0 0 1.5rem;
+            }
+
+            img {
+                width: 72px;
+                height: 72px;
+                border-radius: 50%;
+            }
+        }
+
+        .entry-author-name {
+            margin: 0;
+        }
+
+        .entry-author-description,
+        .entry-author-counters {
+            margin: .75rem 0 0;
+        }
+
+        @include breakpoint(mobile-only) {
+            @include flex-direction(column);
+            
+            .entry-author-avatar {
+                margin: 0 0 1.5rem 0;
+            }
+        }
+    }
+}

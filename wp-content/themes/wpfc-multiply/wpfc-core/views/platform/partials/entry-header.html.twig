@@ -1,0 +1,15 @@
+{% set entry_title_enabled = entry_title_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-title.enabled', '1') %}
+
+{% set meta_categories_enabled = meta_categories_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-categories.enabled', '') %}
+{% set meta_author_enabled = meta_author_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-author.enabled', '1') %}
+{% set meta_date_enabled = meta_date_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-date.enabled', '1') %}
+{% set meta_comments_enabled = meta_comments_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-comments.enabled', '') %}
+
+{% block entry_header %}
+    {% if entry_title_enabled or meta_categories_enabled or meta_author_enabled or meta_date_enabled or meta_comments_enabled %}
+        <section class="entry-header">
+            {% include 'platform/partials/entry-title.html.twig' %}
+            {% include 'platform/partials/entry-meta.html.twig' %}
+        </section>
+    {% endif %}
+{% endblock %}

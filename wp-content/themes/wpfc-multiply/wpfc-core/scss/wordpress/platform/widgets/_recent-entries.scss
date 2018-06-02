@@ -1,0 +1,9 @@
+.widget {
+    &.widget_recent_entries {
+        .post-date {
+            font-size: $core-font-size - .125;
+            font-style: italic;
+            opacity: .87;
+        }
+    }
+}

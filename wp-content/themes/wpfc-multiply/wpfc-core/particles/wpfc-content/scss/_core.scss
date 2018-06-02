@@ -1,0 +1,60 @@
+[class*="wpfc-content-"] {
+    .g-grid {
+        margin: -.625rem;
+        
+        .g-flushed & {
+            margin: 0;
+        }
+    }
+    
+    .g-content {
+        margin: .625rem;
+        padding: 0;
+    }
+
+    .wpfc-entry-title {
+        line-height: 1.25;
+
+        a {
+            color: inherit;
+            &:hover {
+                color: $accent-color-1;
+            }
+        }
+    }
+
+    .wpfc-entry-title,
+    .wpfc-entry-meta,
+    .wpfc-entry-content p {
+        margin: 0 0 .75rem 0;
+    }
+
+    .wpfc-entry-content p:last-child {
+        margin: 0;
+    }
+
+    .wpfc-entry-content {
+        font-size: $core-font-size - .125;
+    }
+
+    .wpfc-readmore {
+        margin: .75rem 0 0;
+    }
+
+    .wpfc-entry-meta {
+        .wpfc-meta-item {
+            display: inline-block;
+            margin: 0 1.5rem 0 0;
+            [dir="rtl"] & {
+                margin: 0 0 0 1.5rem;
+            }
+        }
+    }
+    
+    .wpfc-inner {
+        text-align: left;
+        [dir="rtl"] & {
+            text-align: right;
+        }
+    }
+}

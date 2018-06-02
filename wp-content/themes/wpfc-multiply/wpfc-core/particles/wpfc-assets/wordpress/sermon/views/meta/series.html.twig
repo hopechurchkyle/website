@@ -1,0 +1,23 @@
+{% set meta_scope = meta_scope ?? 'series' %}
+{% set sermon_meta_series_enabled = sermon_meta_series_enabled ?? scope.meta.series.enabled  %}
+
+{% block sermon_meta_series %}
+    {% if sermon_meta_series_enabled and post.terms('wpfc_sermon_series') %}
+        <div class="wpfc-meta-series wpfc-meta-item">
+            {% block sermon_meta_series_content %}
+                {% include '@particles/wpfc-assets/common/views/meta/icon.html.twig' %}
+                {% include '@particles/wpfc-assets/common/views/meta/prefix.html.twig' %}
+                
+                <span class="wpfc-series">
+                    {% for series in post.terms('wpfc_sermon_series') %}
+                        {% if sermon_meta_series_enabled == 'link' %}
+                            <a href="{{ series.link }}" title="{{ series.title }}" class="wpfc-single-series">{{ series.title }}</a>
+                        {% else %}
+                            <span class="wpfc-single-series">{{ series.title }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

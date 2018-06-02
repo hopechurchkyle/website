@@ -1,0 +1,32 @@
+.widget {
+    // Search Widget
+    &.widget_search {
+        .search-form {
+            position: relative;
+        }
+
+        .search-field {
+            padding-right: 2.5rem;
+            [dir="rtl"] & {
+                padding-left: 2.5rem;
+                padding-right: .5rem;
+            }
+        }
+
+        .search-submit {
+            @include appearance(none);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0 .75rem;
+            background: transparent;
+            outline: none;
+            opacity: .54;
+            [dir="rtl"] & {
+                left: 0;
+                right: auto;
+            }
+        }
+    }
+}

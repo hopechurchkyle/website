@@ -1,0 +1,15 @@
+name: Post Title
+description: Options for displaying title
+type: blog
+
+extends@:
+  - type: archive/entry-title
+
+form:
+  fields:
+
+    link:
+      type: input.checkbox
+      label: Link Title
+      description: Link titles to the posts.
+      default: 1

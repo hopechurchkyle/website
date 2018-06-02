@@ -1,0 +1,33 @@
+.wpfc-elementor-events.wpfc-style2 {
+    position: relative;
+    
+    .wpfc-grid:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 1px;
+        height: 1rem;
+        background: url('../images/event-bg.png') repeat-x right top;
+    }
+    
+    .wpfc-block-content {
+        position: relative;
+        text-align: center;
+        padding-top: 1rem;
+        
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -1px;
+            width: 1px;
+            height: 15px;
+        }
+    }
+    
+    .wpfc-title a {
+        color: inherit;
+    }
+}

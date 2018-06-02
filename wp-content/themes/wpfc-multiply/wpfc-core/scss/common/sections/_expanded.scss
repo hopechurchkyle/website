@@ -1,0 +1,12 @@
+#g-expanded {
+    position: relative;
+    color: $expanded-color;
+    background: $expanded-background;
+    @if $expanded-background-image {
+        background-image: url($expanded-background-image);
+        background-size: unquote($expanded-background-size);
+        background-repeat: unquote($expanded-background-repeat);
+        background-position: unquote($expanded-background-position);
+        background-attachment: unquote($expanded-background-attachment);
+    }
+}

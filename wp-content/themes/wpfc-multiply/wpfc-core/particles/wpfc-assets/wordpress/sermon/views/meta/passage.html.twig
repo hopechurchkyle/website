@@ -1,0 +1,17 @@
+{% set meta_scope = meta_scope ?? 'passage' %}
+{% set sermon_meta_passage_enabled = sermon_meta_passage_enabled ?? scope.meta.passage.enabled %}
+
+{% block sermon_meta_passage %}
+    {% if sermon_meta_passage_enabled and post.meta('bible_passage') %}
+        <div class="wpfc-meta-passage wpfc-meta-item">
+            {% block sermon_meta_passage_content %}
+                {% include '@particles/wpfc-assets/common/views/meta/icon.html.twig' %}
+                {% include '@particles/wpfc-assets/common/views/meta/prefix.html.twig' %}
+
+                <span class="wpfc-passage">
+                    <span class="wpfc-single-passage">{{ fn('wpfc_sermon_meta', 'bible_passage') }}</span>
+                </span>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

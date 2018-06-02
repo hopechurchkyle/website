@@ -1,0 +1,35 @@
+<root>
+    <params name="filter" label="Filter">
+        <param type="group" label="Filter">
+            <param name="categories" label="Category" type="theeventscalendarcategories" default="0" multiple="1"
+                   size="10"/>
+            <param name="tags" label="Tag" type="theeventscalendartags" default="0" multiple="1" size="10"/>
+            <param name="organizers" label="Organizer" type="theeventscalendarorganizers" default="0"
+                   multiple="1" size="10"/>
+            <param name="venues" label="Venue" type="theeventscalendarvenues" default="0" multiple="1"
+                   size="10"/>
+        </param>
+        <param type="group" label="Limit">
+            <param name="started" label="Started" type="filter" default="0"/>
+            <param name="ended" label="Ended" type="filter" default="-1"/>
+            <param name="featured" label="Featured" type="filter" default="0"/>
+            <param name="hide" label="Hide From Event Listings" type="filter" default="0"/>
+        </param>
+    </params>
+    <params name="order" label="Order by">
+        <param name="order" type="mixed" label="Order" default="_EventStartDate|*|asc">
+            <param type="list" label="Field" translateable="1">
+                <option value="_EventStartDate">Event start date</option>
+                <option value="_EventEndDate">Event end date</option>
+                <option value="_EventCost">Event cost</option>
+                <option value="post_date">Event creation date</option>
+                <option value="post_modified">Event modification date</option>
+                <option value="title">Title</option>
+            </param>
+            <param type="radio" label="order" translateable="1">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </param>
+        </param>
+    </params>
+</root>

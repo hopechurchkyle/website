@@ -1,0 +1,38 @@
+<root>
+    <params>
+        <param type="group" label="Particle effect">
+            <param name="preset" type="particlejspresets" label="Effect" default="0"/>
+            <param name="mobile" type="onoff" label="Show on mobile" default="0"/>
+        </param>
+
+        <param type="group" label="Settings" class="n2-ss-particle-settings">
+            <param name="color" type="color" alpha="1" label="Color" default="FFFFFF80"/>
+            <param name="line-color" type="color" alpha="1" label="Line color" default="FFFFFF66"/>
+
+            <param name="speed" type="numberautocompleteslider" label="Speed" style="width:35px;"
+                   default="2" min="1" max="60" slmax="60" step="1"/>
+            <param name="number" type="numberautocompleteslider" label="Number of particles"
+                   style="width:35px;"
+                   default="28" min="10" max="200" slmax="200" step="1"/>
+            <param type="list" name="hover" label="Hover" default="off"
+                   translateable="1">
+                <option value="0">Off</option>
+                <option value="grab">Grab</option>
+                <option value="bubble">Bubble</option>
+                <option value="repulse">Repulse</option>
+            </param>
+            <param type="list" name="click" label="Click" default="off"
+                   translateable="1">
+                <option value="0">Off</option>
+                <option value="repulse">Repulse</option>
+                <option value="push">Push</option>
+                <option value="remove">Remove</option>
+                <option value="bubble">Bubble</option>
+            </param>
+        </param>
+
+        <param type="textarea" name="custom" default="" label="Custom" class="n2-ss-particle-custom"
+               style2="width: 480px;min-height:200px;resize: vertical;"/>
+
+    </params>
+</root>

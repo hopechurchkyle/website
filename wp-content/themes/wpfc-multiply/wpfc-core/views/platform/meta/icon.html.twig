@@ -1,0 +1,9 @@
+{% set meta_icon = meta_icon ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.icon', '') %}
+
+{% block meta_icon %}
+    {% if meta_icon %}
+        <span class="meta-icon">
+            <i class="{{ meta_icon }}" aria-hidden="true"></i>
+        </span>
+    {% endif %}
+{% endblock %}

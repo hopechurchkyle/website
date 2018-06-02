@@ -1,0 +1,25 @@
+{% set featured_image_enabled = featured_image_enabled ?? scope.image.enabled %}
+{% set featured_image_width = featured_image_width ?? scope.image.width %}
+{% set featured_image_height = featured_image_height ?? scope.image.height %}
+{% set background_overlay_enabled = background_overlay_enabled ?? scope.image.overlay.enabled %}
+
+{% set width = featured_image_width ? "width:" ~ featured_image_width ~ "px;" %}
+{% set height = featured_image_height ? "height:" ~ featured_image_height ~ "px;" %}
+
+{% block featured_image %}
+    {% if featured_image_enabled and post.thumbnail.src %}
+        <div class="wpfc-post-thumbnail">
+            {% block featured_image_content %}
+                {% if featured_image_enabled == 'link' %}
+                    <a href="{{ post.link }}" title="{{ post.title }}">
+                        <img src="{{ post.thumbnail.src|resize(featured_image_width, featured_image_height) }}">
+                        {% if background_overlay_enabled %}<div class="wpfc-background-overlay"></div>{% endif %}
+                    </a>
+                {% else %}
+                    <img src="{{ post.thumbnail.src|resize(featured_image_width, featured_image_height) }}">
+                    {% if background_overlay_enabled %}<div class="wpfc-background-overlay"></div>{% endif %}
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

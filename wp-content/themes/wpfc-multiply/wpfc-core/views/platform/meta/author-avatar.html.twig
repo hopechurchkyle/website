@@ -1,0 +1,40 @@
+{% set meta_author_enabled = meta_author_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-author.enabled', '1') %}
+{% set meta_author_link = meta_author_link ?? gantry.config.get('content.' ~ scope ~ '.meta-author.link', '1') %}
+{% set meta_avatar_enabled = meta_avatar_enabled ?? gantry.config.get('content.' ~ scope ~ '.meta-avatar.enabled', '1') %}
+{% set meta_avatar_link = meta_avatar_link ?? gantry.config.get('content.' ~ scope ~ '.meta-avatar.link', '1') %}
+
+{% block meta_author_avatar %}
+    {% if meta_author_enabled or meta_avatar_enabled %}
+        <div class="meta-author-avatar">
+            {% block meta_author_avatar_content %}
+                {% for author in post.authors %}
+                    <div class="meta-wrapper">
+                        {# Author Avatar #}
+                        {% if meta_avatar_enabled %}
+                            <div class="meta-avatar meta-item">
+                                {% if meta_avatar_link %}
+                                    <a href="{{ author.link }}" title="{{ author.name }}">
+                                        <img src="{{ url(author.avatar) }}" alt="{{ author.name }}">
+                                    </a>
+                                {% else %}
+                                    <img src="{{ url(author.avatar) }}" alt="{{ author.name }}">
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        {# Author Name #}
+                        {% if meta_author_enabled %}
+                            <div class="meta-author meta-item">
+                                {% if meta_author_link %}
+                                    <a href="{{ author.link }}" title="{{ author.name }}" class="author">{{ author.name }}</a>
+                                {% else %}
+                                    <span class="author">{{ author.name }}</span>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

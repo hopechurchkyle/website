@@ -1,0 +1,48 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+    
+    {# Shortcuts #}
+    {% set scope = particle %}
+    {% set grid = particle.grid %}
+
+    {# Variables #}
+    {% set size = 'size-' ~ (100 / grid.columns)|number_format(1, '-')|replace({"-0" : ""}) %}
+    {% set tablet_size = 'wpfc-' ~ grid.tablet.columns %}
+    {% set phone_size = 'wpfc-' ~ grid.phone.columns %}
+    {% set class_block = [size, tablet_size, phone_size]|join(' ') %}
+
+    {# Main Content #}
+    <div class="{{ id }}">
+        {# Particle Header #}
+        {% include '@particles/wpfc-assets/common/views/partials/particle-header.html.twig' %}
+
+        {% if particle.items %}
+            <ul class="g-grid">
+                {% for item in particle.items %}
+                    <li class="g-block {{ class_block }}">
+                        <div class="wpfc-inner">
+                            {% if item.link %}<a href="{{ item.link }}" target="{{ item.target }}">{% endif %}
+                                {% if item.icon.icon %}<i class="{{ item.icon.icon }}"></i>{% endif %}
+                                <div class="wpfc-content-wrapper">
+                                    {% if item.title.text %}<div class="wpfc-title">{{ item.title.text|raw }}</div>{% endif %}
+                                    {% if item.description.text %}<div class="wpfc-description">{{ item.description.text|raw }}</div>{% endif %}
+                                </div>
+                            {% if item.link %}</a>{% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        {% if particle.social %}
+            <div class="wpfc-social-items">
+                {% for item in particle.social %}
+                    <a href="{{ item.link }}" target="{{ item.target }}">
+                        <i class="{{ item.icon.icon }}"></i>
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

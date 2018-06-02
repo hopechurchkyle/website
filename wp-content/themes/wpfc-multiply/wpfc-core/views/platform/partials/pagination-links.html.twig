@@ -1,0 +1,23 @@
+{% block page_links %}
+    {% if post.pagination.pages %}
+        <div class="pagination-post">
+            <div class="pagination-links">
+                {% if post.pagination.prev %}
+                    <a href="{{ page.link }}" class="prev page-numbers">Previous</a>
+                {% endif %}
+
+                {% for page in post.pagination.pages %}           
+                    {% if page.current %}
+                        <span class="page-numbers current">{{ page.title }}</span>
+                    {% else %}
+                        <a href="{{ page.link }}" class="page-numbers">{{ page.title }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if post.pagination.next %}
+                    <a href="{{ page.link }}" class="next page-numbers">Next</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+.wpfc-elementor-events.wpfc-style4 {
+    .wpfc-block-content {
+        display: flex;
+    }
+
+    .wpfc-wrapper {
+        display: flex;
+        width: 100%;
+    }
+    
+    .wpfc-main {
+        flex: 1 80%;
+    }
+    
+    .wpfc-aside {
+        flex: 1 20%;
+        text-align: right;
+    }
+    
+    .wpfc-title {
+        margin: 0;
+    }
+    
+    .wpfc-date {
+        margin-top: .25rem;
+    }
+    
+    .wpfc-start-date-day,
+    .wpfc-start-date-month {
+        display: block;
+    }
+    
+    .wpfc-start-date-day {
+        font-size: 1.5rem;
+    }
+    
+    .wpfc-start-date-month {
+        text-transform: uppercase;
+    }
+    
+    .wpfc-start-date {
+        display: inline-block;
+        font-weight: 600;
+    }
+}

@@ -1,0 +1,38 @@
+{% set meta_author_enabled = meta_author_enabled ?? scope.meta.author.enabled %}
+{% set meta_avatar_enabled = meta_avatar_enabled ?? scope.meta.avatar.enabled %}
+
+{% block meta_author_avatar %}
+    {% if (meta_author_enabled or meta_avatar_enabled) and post.authors %}
+        <div class="wpfc-meta-author-avatar">
+            {% block meta_author_avatar_content %}
+                {% for author in post.authors %}
+                    <div class="wpfc-meta-item">
+                        {# Author Avatar #}
+                        {% if meta_avatar_enabled and author.avatar %}
+                            <div class="wpfc-meta-avatar">
+                                {% if meta_avatar_enabled == 'link' %}
+                                    <a href="{{ author.link }}" title="{{ author.name }}" class="wpfc-avatar">
+                                        <img src="{{ url(author.avatar) }}" alt="{{ author.name }}">
+                                    </a>
+                                {% else %}
+                                    <img src="{{ url(author.avatar) }}" alt="{{ author.name }}">
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        {# Author Name #}
+                        {% if meta_author_enabled %}
+                            <div class="wpfc-meta-author">
+                                {% if meta_author_enabled == 'link' %}
+                                    <a href="{{ author.link }}" title="{{ author.name }}" class="wpfc-author">{{ author.name }}</a>
+                                {% else %}
+                                    <span class="wpfc-author">{{ author.name }}</span>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

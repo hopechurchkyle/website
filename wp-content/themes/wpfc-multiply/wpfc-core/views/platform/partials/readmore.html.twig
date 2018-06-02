@@ -1,0 +1,19 @@
+{% set readmore = preg_match('/<!--more(.*?)?-->/', post.post_content) %}
+{% set readmore_mode = readmore_mode ?? gantry.config.get('content.' ~ scope ~ '.readmore.mode', 'auto') %}
+{% set readmore_class = readmore_class ?? gantry.config.get('content.' ~ scope ~ '.readmore.class', 'button small') %}
+{% set readmore_label = readmore_label ?? gantry.config.get('content.' ~ scope ~ '.readmore.label', 'Read More') %}
+{% set entry_content_limit = entry_content_limit ?? gantry.config.get('content.' ~ scope ~ '.entry-content.limit', '') %}
+
+{% block readmore %}  
+    {% if readmore_mode == 'always' or (readmore_mode == 'auto' and (readmore or post.post_excerpt or entry_content_limit)) %}
+        <div class="readmore">     
+            <a href="{{ post.link }}" class="{{ readmore_class }}">
+                {%- if readmore[1] -%}
+                    {{- readmore[1] -}}
+                {%- else -%}
+                    {{- readmore_label -}}
+                {%- endif -%}
+            </a>
+        </div>
+    {% endif %}
+{% endblock %}

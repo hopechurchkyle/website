@@ -1,0 +1,27 @@
+{% set sermon_entry_video_embed_enabled = sermon_entry_video_embed_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-video.embed', '1') %}
+{% set sermon_entry_video_link_enabled = sermon_entry_video_link_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-video.link', '1') %}
+{% set sermon_entry_audio_enabled = sermon_entry_audio_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-audio.enabled', '1') %}
+{% set sermon_entry_notes_enabled = sermon_entry_notes_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-notes.enabled', '1') %}
+{% set sermon_entry_bulletin_enabled = sermon_entry_bulletin_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-bulletin.enabled', '1') %}
+
+{% block sermon_entry_media %}
+    {% if sermon_entry_video_embed_enabled 
+       or sermon_entry_video_link_enabled 
+       or sermon_entry_audio_enabled 
+       or sermon_entry_bulletin_enabled 
+       or sermon_entry_notes_enabled %}
+        <div class="entry-media">
+            {% block sermon_entry_media_content %}
+                {% include 'wpfc-sermon/partials/entry-video.html.twig' %}
+                {% include 'wpfc-sermon/partials/entry-audio.html.twig' %}
+
+                {% if sermon_entry_bulletin_enabled or sermon_entry_notes_enabled %}
+                    <div class="entry-files">
+                        {% include 'wpfc-sermon/partials/entry-bulletin.html.twig' %}
+                        {% include 'wpfc-sermon/partials/entry-notes.html.twig' %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+[class*="wpfc-sermon-hero-"].wpfc-style-content {
+    .wpfc-inner-wrapper {
+        text-align: center;
+    }
+
+    .wpfc-entry-title {
+        margin: 1.5rem 0;
+    }
+
+    .wpfc-meta-item {
+        display: inline-block;
+        margin: 0 .375rem 0 0;
+        [dir="rtl"] & {
+            margin: 0 0 0 .375rem;
+        }
+    }
+}

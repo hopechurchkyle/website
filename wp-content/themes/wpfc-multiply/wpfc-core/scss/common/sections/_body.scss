@@ -1,0 +1,11 @@
+body {
+    color: $body-color;
+    background: $body-background;
+    @if $body-background-image {
+        background-image: url($body-background-image);
+        background-size: unquote($body-background-size);
+        background-repeat: unquote($body-background-repeat);
+        background-position: unquote($body-background-position);
+        background-attachment: unquote($body-background-attachment);
+    }
+}

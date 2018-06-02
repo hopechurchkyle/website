@@ -1,0 +1,49 @@
+.wpfc-elementor-sermons.wpfc-style-5 {
+    .wpfc-block-content {
+        display: flex;
+        
+        @media(max-width: 860px) {
+            flex-flow: row wrap;
+        }
+    }
+    
+    .wpfc-entry-image-wrapper {
+        flex: none;
+        width: 100%;
+        
+        @media(max-width: 860px) {
+            max-width: 100%;
+        }
+    }
+    
+    .wpfc-entry-image {
+        height: 100%;
+    }
+    
+    .wpfc-play-button-wrapper {
+        flex: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media(max-width: 860px) {
+            padding: 1.5rem;
+            flex: 100%;
+        }
+    }
+    
+    .wpfc-wrapper {
+        display: flex;
+        justify-content: center;
+        flex-flow: column wrap;
+        flex-grow: 1;
+        
+        @media(max-width: 860px) {
+            padding: 1.5rem;
+        }
+    }
+    
+    .wpfc-entry-meta {
+        font-size: 0.875rem;
+    }
+}

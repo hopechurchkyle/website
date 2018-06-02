@@ -1,0 +1,39 @@
+.wpfc-elementor-sermons.wpfc-style-7 {
+    .wpfc-block-content {
+        text-align: center;
+    }
+    
+    .wpfc-entry-description,
+    .wpfc-link,
+    .wpfc-actions {
+        margin-top: 1.5rem;
+        
+        > div {
+            display: inline-block;
+            padding: .25rem .75rem;
+            vertical-align: middle;
+        }
+    }
+    
+    .wpfc-entry-description,
+    .wpfc-link {
+        font-size: 1.25rem;
+    }
+    
+    .wpfc-link {
+        text-align: center;
+
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+    }
+    
+    .wpfc-play-button-wrapper {
+        button {
+            width: auto;
+            height: auto;
+            line-height: auto;
+        }
+    }
+}

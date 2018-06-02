@@ -1,0 +1,19 @@
+{% set sermon_entry_share_buttons_enabled = sermon_entry_share_buttons_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-share-buttons.enabled', '1') %}
+
+{% block sermon_entry_share_buttons_enabled %}
+    {% if sermon_entry_share_buttons_enabled %}
+        <div class="entry-share-buttons">
+
+            {# Facebook #}
+            <a href="https://www.facebook.com/sharer.php?u={{ post.link }}">
+                <i class="fa fa-facebook"></i>
+            </a>
+
+            {# Twitter #}
+            <a href="https://twitter.com/intent/tweet?url={{ post.link }}&text={{ post.title }}">
+                <i class="fa fa-twitter"></i>
+            </a>
+
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+name: Grid
+description:
+type: sermon-archive
+
+extends@:
+  - type: archive/grid
+
+form:
+  fields:
+
+    posts:
+      type: input.number
+      label: Number of Posts
+      default: 9
+      min: 1
+
+    columns:
+      type: input.number
+      label: Columns
+      default: 3
+      min: 1

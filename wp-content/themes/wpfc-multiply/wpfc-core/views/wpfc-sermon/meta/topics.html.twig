@@ -1,0 +1,24 @@
+{% set meta_scope = 'meta-topics' %}
+{% set sermon_meta_topics_enabled = sermon_meta_topics ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.enabled', '1')  %}
+{% set sermon_meta_topics_link = sermon_meta_topics_link ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.link', '1') %}
+
+{% block sermon_meta_topics %}
+    {% if sermon_meta_topics_enabled and post.terms('wpfc_sermon_topics') %}
+        <div class="meta-topics meta-item">
+            {% block sermon_meta_topics_content %}
+                {% include 'platform/meta/icon.html.twig' %}
+                {% include 'platform/meta/prefix.html.twig' %}
+                
+                <span class="topics">
+                    {% for topic in post.terms('wpfc_sermon_topics') %}
+                        {% if sermon_meta_topics_link %}
+                            <a href="{{ topic.link }}" title="{{ topic.title }}" class="single-topic">{{ topic.title }}</a>
+                        {% else %}
+                            <span class="single-topic">{{ topic.title }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

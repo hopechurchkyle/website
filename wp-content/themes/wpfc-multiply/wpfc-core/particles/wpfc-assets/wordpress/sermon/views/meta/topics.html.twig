@@ -1,0 +1,23 @@
+{% set meta_scope = meta_scope ?? 'topics' %}
+{% set sermon_meta_topics_enabled = sermon_meta_topics ?? scope.meta.topics.enabled  %}
+
+{% block sermon_meta_topics %}
+    {% if sermon_meta_topics_enabled and post.terms('wpfc_sermon_topics') %}
+        <div class="wpfc-meta-topics wpfc-meta-item">
+            {% block sermon_meta_topics_content %}
+                {% include '@particles/wpfc-assets/common/views/meta/icon.html.twig' %}
+                {% include '@particles/wpfc-assets/common/views/meta/prefix.html.twig' %}
+                
+                <span class="wpfc-topics">
+                    {% for topic in post.terms('wpfc_sermon_topics') %}
+                        {% if sermon_meta_topics_link %}
+                            <a href="{{ topic.link }}" title="{{ topic.title }}" class="wpfc-single-topic">{{ topic.title }}</a>
+                        {% else %}
+                            <span class="wpfc-single-topic">{{ topic.title }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

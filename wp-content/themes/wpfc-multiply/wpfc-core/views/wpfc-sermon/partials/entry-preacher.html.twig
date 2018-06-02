@@ -1,0 +1,58 @@
+{% set sermon_entry_preacher_enabled = sermon_entry_preacher_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-preacher.enabled', '1')  %}
+{% set sermon_entry_preacher_avatar_enabled = sermon_entry_preacher_avatar_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-preacher.avatar.enabled', 'show')  %}
+{% set sermon_entry_preacher_name_enabled = sermon_entry_preacher_name_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-preacher.name.enabled', 'show')  %}
+{% set sermon_entry_preacher_description_enabled = sermon_entry_preacher_description_enabled ?? gantry.config.get('content.' ~ scope ~ '.entry-preacher.description.enabled', 'show')  %}
+                        
+{% set preacher_parameters = {
+    'taxonomy' : 'wpfc_preacher'
+} %}
+{% set preachers = "image"|apply_filters('sermon-images-get-the-terms', preacher_parameters) %}
+
+{% set preacher_description = '' %}
+{% for preacher in preachers %}
+    {% set preacher_description = preacher.description %}
+{% endfor %}
+
+{% block sermon_entry_preacher %}
+    {% if sermon_entry_preacher_enabled and preacher_description is not empty %}
+        <div class="entry-author">
+            {% block sermon_entry_preacher_content %}
+                {% for preacher in preachers %}
+                    <div class="entry-author-item">     
+                        {# Avatar #}
+                        {% if sermon_entry_preacher_avatar_enabled %}
+                            <div class="entry-author-avatar">
+                                {% if sermon_entry_preacher_avatar_enabled == 'link' %}
+                                    <a href="{{ preacher.link }}" title="{{ preacher.name }}">
+                                        {{ function('wp_get_attachment_image', preacher.image_id) }}
+                                    </a>
+                                {% else %}
+                                    {{ function('wp_get_attachment_image', preacher.image_id) }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        {# Begin Inner Content #}
+                        <div class="entry-author-inner">
+                            {# Preacher Name #}
+                            {% if sermon_entry_preacher_name_enabled %}
+                                <h4 class="entry-author-name">
+                                    {% if sermon_entry_preacher_name_enabled == 'link' %}
+                                        <a href="{{ preacher.link }}" title="{{ preacher.name }}" class="entry-author-name-text">{{ preacher.name }}</a>
+                                    {% else %}
+                                        <span class="entry-author-name-text">{{ preacher.name }}</span>
+                                    {% endif %}
+                                </h4>
+                            {% endif %}
+
+                            {# Preacher Description #}
+                            {% if sermon_entry_preacher_description_enabled %}
+                                <div class="entry-author-description">{{ preacher.description }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

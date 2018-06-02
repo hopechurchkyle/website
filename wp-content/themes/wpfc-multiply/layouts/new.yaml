@@ -1,0 +1,30 @@
+version: 2 
+
+preset:
+  name: new
+
+layout:
+  /top/: { }
+  /header/: { }
+  /wrapper-navigation/:
+    /navigation/: { }
+  /showcase/: { }
+  /utility/: { }
+  /features/: { }
+  /subfeatures/: { }
+  /modules/: { }
+  /above/: { }
+  /system/: { }
+  /container-main/:
+    -
+      - /aside 25/: { }
+      - /mainbar 50/: { }
+      - /sidebar 25/: { }
+  /below/: { }
+  /addons/: { }
+  /extended/: { }
+  /expanded/: { }
+  /bottom/: { }
+  /footer/: { }
+  /copyright/: { }
+  /offcanvas/: { }

@@ -1,0 +1,20 @@
+.widget {
+    &.widget_tag_cloud {
+        a {
+            display: inline-block;
+            line-height: 1;
+            color: inherit;
+            border: 1px solid $base-border-color;
+            margin: 0 .25rem .25rem 0;
+            padding: .5rem .75rem;
+            [dir="rtl"] & {
+                margin: 0 0 .25rem .25rem;
+            }
+            &:hover {
+              background: $accent-color-1;
+              border-color: $accent-color-1;
+              color: $white;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{% set meta_scope = 'meta-date' %}
+{% set meta_date_enabled = meta_date_enabled ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.enabled', '1') %}
+{% set meta_date_link = meta_date_link ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.link', '1') %}
+{% set meta_date_format = meta_date_format ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.format', '') %}
+
+{% block meta_date %}
+    {% if meta_date_enabled %}
+        <div class="meta-date meta-item">
+            {% block meta_date_content %}
+                {% include 'platform/meta/icon.html.twig' %}
+                {% include 'platform/meta/prefix.html.twig' %}
+
+                {% if meta_date_link %}
+                    <a href="{{ post.link }}" title="{{ post.title }}" class="date">{{ post.date(meta_date_format) }}</a>
+                {% else %}
+                    <span class="date">{{ post.date(meta_date_format) }}</span>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

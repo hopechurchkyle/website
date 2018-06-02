@@ -1,0 +1,12 @@
+#g-bottom {
+    position: relative;
+    color: $bottom-color;
+    background: $bottom-background;
+    @if $bottom-background-image {
+        background-image: url($bottom-background-image);
+        background-size: unquote($bottom-background-size);
+        background-repeat: unquote($bottom-background-repeat);
+        background-position: unquote($bottom-background-position);
+        background-attachment: unquote($bottom-background-attachment);
+    }
+}

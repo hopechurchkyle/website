@@ -1,0 +1,16 @@
+name: Mainbar Colors
+description: Mainbar Colors
+type: section
+
+form:
+  fields:
+
+    color:
+      type: input.colorpicker
+      label: Text Color 
+      default: '#181818'  
+
+    background:
+      type: input.colorpicker
+      label: Background Color
+      default: '#ffffff'

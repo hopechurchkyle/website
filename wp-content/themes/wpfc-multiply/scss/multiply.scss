@@ -1,0 +1,35 @@
+// REQUIRED DEPENDENCIES - DO NOT CHANGE
+@import "dependencies";
+@import "nucleus/theme/base";
+@import "nucleus/theme/breakpoints/base";
+
+//-------------------------------------------
+
+// CORE STYLING
+
+// Menu
+@import "common/menu/base";
+
+// Particles
+@import "common/particles/base";
+
+// Sections
+@import "common/sections/base";
+
+// Styles
+@import "common/styles/base";
+
+// Utility
+@import "common/utility/base";
+
+//-------------------------------------------
+
+// THEME STYLING
+
+// Sections
+@import "multiply/sections/base";
+
+// All WPFC particles
+@import "../wpfc-core/particles/wpfc-assets/common/scss/particles";
+
+//-------------------------------------------

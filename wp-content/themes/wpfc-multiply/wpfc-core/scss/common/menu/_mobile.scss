@@ -1,0 +1,37 @@
+#g-mobilemenu-container {
+    margin: -($content-margin + $content-padding);
+
+    ul {
+        background: $offcanvas-background;
+
+        > li {
+            > .g-menu-item-container {
+                color: $offcanvas-color;
+                border-bottom: 1px solid darken($offcanvas-background, 6%);
+                @include transition(.3s ease);
+
+                .g-menu-parent-indicator {
+                    top: 50%;
+                    @include transform(translateY(-50%));
+                    @include transition(.3s ease);
+                    padding: .1875rem;
+                    border: 1px solid transparentize($offcanvas-color, 50%);
+
+                    &:hover {
+                        background: darken($offcanvas-background, 10%);
+                    }
+                }
+            }
+
+            &.active, &:hover, &.g-selected {
+                > .g-menu-item-container {
+                    background: darken($offcanvas-background, 6%);
+                }
+            }
+
+            .g-dropdown-column {
+                width: $offcanvas-width;
+            }
+        }
+    }
+}

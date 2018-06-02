@@ -1,0 +1,20 @@
+name: Date Meta
+description: Options for displaying date meta
+type: single
+
+extends@:
+  - type: archive/meta-date
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Display Date
+      description: Display post publish date.
+      default: 0
+
+    prefix:
+      type: input.text 
+      label: Prefix
+      default: 'On'

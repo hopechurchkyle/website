@@ -1,0 +1,14 @@
+name: Date Meta
+description: Options for displaying date meta
+type: blog
+
+extends@:
+  - type: archive/meta-date
+
+form:
+  fields:
+
+    prefix:
+      type: input.text 
+      label: Prefix
+      default: 'On'

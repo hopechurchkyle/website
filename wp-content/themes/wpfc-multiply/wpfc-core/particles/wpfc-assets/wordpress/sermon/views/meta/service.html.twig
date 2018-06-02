@@ -1,0 +1,23 @@
+{% set meta_scope = meta_scope ?? 'service' %}
+{% set sermon_meta_service_enabled = sermon_meta_service ?? scope.meta.service.enabled  %}
+
+{% block sermon_meta_service %}
+    {% if sermon_meta_service_enabled and post.terms('wpfc_service_type') %}
+        <div class="wpfc-meta-service wpfc-meta-item">
+            {% block sermon_meta_service_content %}
+                {% include '@particles/wpfc-assets/common/views/meta/icon.html.twig' %}
+                {% include '@particles/wpfc-assets/common/views/meta/prefix.html.twig' %}
+                
+                <span class="wpfc-service">
+                    {% for service in post.terms('wpfc_service_type') %}
+                        {% if sermon_meta_service_enabled == 'link' %}
+                            <a href="{{ service.link }}" title="{{ service.title }}" class="wpfc-single-service">{{ service.title }}</a>
+                        {% else %}
+                            <span class="wpfc-single-service">{{ service.title }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

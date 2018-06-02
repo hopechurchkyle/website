@@ -1,0 +1,7 @@
+{% extends 'platform/partials/entry-content.html.twig' %}
+{% set twigTemplate = 'entry-content-more.html.twig' %}
+
+{% block entry_content_inner %}
+    {{ parent() }}
+    {% include 'platform/partials/readmore.html.twig' %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% set meta_scope = meta_scope ?? 'author' %}
+{% set meta_author_enabled = meta_author_enabled ?? scope.meta.author.enabled %}
+
+{% block meta_author %}
+    {% if meta_author_enabled and post.authors %}
+        <div class="wpfc-meta-author wpfc-meta-item">
+            {% block meta_author_content %}
+                {% include '@particles/wpfc-assets/common/views/meta/icon.html.twig' %}
+                {% include '@particles/wpfc-assets/common/views/meta/prefix.html.twig' %}
+
+                {% for author in post.authors %}
+                    {% if meta_author_enabled == 'link' %}
+                        <a href="{{ author.link }}" title="{{ author.name }}" class="wpfc-author">{{ author.name }}</a>
+                    {% else %}
+                        <span class="wpfc-author">{{ author.name }}</span>
+                    {% endif %}
+                {% endfor %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

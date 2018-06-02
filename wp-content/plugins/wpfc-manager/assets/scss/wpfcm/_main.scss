@@ -1,0 +1,12 @@
+> main {
+  padding: $section-padding $wrapper-padding $section-padding/2;
+
+  > .content {
+    background: #ffffff;
+    max-width: 100%;
+    min-height: 200px;
+    border-bottom: 1px solid $border-color;
+    position: relative;
+    padding: $content-padding;
+  }
+}

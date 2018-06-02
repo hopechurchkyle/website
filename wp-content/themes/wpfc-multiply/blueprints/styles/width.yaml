@@ -1,0 +1,36 @@
+name: Width
+description:
+type: configuration
+
+form:
+  fields:
+
+    large-desktop-container:
+      type: input.text
+      label: Large Desktop
+      description:
+      default: "100%"
+    
+    desktop-container:
+      type: input.text
+      label: Desktop
+      description:
+      default: "100%"
+    
+    tablet-container:
+      type: input.text
+      label: Tablet
+      description:
+      default: "100%"
+    
+    large-mobile-container:
+      type: input.text
+      label: Large Mobile
+      description:
+      default: "100%"
+    
+    mobile-container:
+      type: input.text
+      label: Mobile
+      description:
+      default: "100%"

@@ -1,0 +1,15 @@
+name: Comments Meta
+description: Options for displaying comments meta
+type: blog
+
+extends@:
+  - type: archive/meta-comments
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Display Comments
+      description: Display number of comments.
+      default: 1

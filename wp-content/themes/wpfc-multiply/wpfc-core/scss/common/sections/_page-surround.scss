@@ -1,0 +1,19 @@
+#g-page-surround {
+    color: $base-color;
+    background: $base-background;
+    margin: auto;
+
+	max-width: $width-large-desktop-container;
+	@include breakpoint(desktop-range) {
+		max-width: $width-desktop-container;
+	}
+	@include breakpoint(tablet-range) {
+		max-width: $width-tablet-container;
+	}
+	@include breakpoint(large-mobile-range) {
+		max-width: $width-large-mobile-container;
+	}
+	@include breakpoint(small-mobile-range) {
+		max-width: $width-mobile-container;
+	}
+}

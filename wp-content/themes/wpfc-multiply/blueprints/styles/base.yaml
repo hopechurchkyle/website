@@ -1,0 +1,18 @@
+name: Base Colors
+description: Base Colors
+type: core
+
+extends@: above
+
+form: 
+  fields:
+
+    color:
+      type: input.colorpicker
+      label: Text Color 
+      default: '#181818'
+
+    background:
+      type: input.colorpicker
+      label: Background Color
+      default: '#ffffff'

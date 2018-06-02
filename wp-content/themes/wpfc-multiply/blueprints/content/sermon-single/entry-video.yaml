@@ -1,0 +1,18 @@
+name: Entry Video
+description:
+type: sermon-single
+
+form:
+  fields:
+
+    embed:
+      type: input.checkbox
+      label: Embed
+      description:
+      default: 1
+
+    link:
+      type: input.checkbox
+      label: Link
+      description:
+      default: 1

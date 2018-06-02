@@ -1,0 +1,38 @@
+<root>
+    <params name="filter" label="Filter">
+        <param type="group" label="Filter">
+            <param name="categories" label="Category" type="allinoneeventcalendarcategories" default="0"
+                   multiple="1" size="10"/>
+            <param name="tags" label="Tag" type="allinoneeventcalendartags" default="0" multiple="1" size="10"/>
+        </param>
+        <param type="group" label="Limit">
+            <param name="recurring" label="Only recurring events" type="onoff" default="0" tip="If you turn this on, the started, ended filters will be ignored! Also the ordering will use the base date, so not the recurring date!"/>
+            <param name="excluderecurring" label="Exclude recurring events" type="onoff" default="0"/>
+            <param name="started" label="Started" type="filter" default="0"/>
+            <param name="ended" label="Ended" type="filter" default="-1"/>
+        </param>
+        <param type="group" label="Date" tip="Hover over the setting names for description.">
+            <param name="customdates" label="Create custom date variables (one per line)" type="textarea" default="D&#xA;F&#xA;F j, Y, g:i a&#xA;Ymd" style2="width:300px;height: 100px;" tip="You can write any date format (http://php.net/manual/en/function.date.php) in separate lines, and new variables will be created for them."/>
+            <param name="translatecustomdates" label="Translate your custom date variables (one per line)" type="textarea" default="from||to&#xA;Monday||Monday&#xA;jan||jan" style2="width:300px;height: 100px;" tip="Write the original text, like 'Monday' then two | signs, and the text you want it to be translated to, for example 'Montag'. Together: Monday||Montag"/>
+            <param name="datefunction" type="list" label="Function" translateable="1" tip="This function will be used to format these custom date variables. Usually the date_i18n works, but if your date will be off a little bit, then try out the other one." default="date_i18n">
+                <option value="date_i18n">date_i18n</option>
+                <option value="date">date</option>
+            </param>
+        </param>
+    </params>
+    <params name="order" label="Order by">
+        <param name="order" type="mixed" label="Order" default="start|*|asc">
+            <param type="list" label="Field" translateable="1">
+                <option value="start">Event start date</option>
+                <option value="end">Event end date</option>
+                <option value="post_date">Creation date</option>
+                <option value="post_modified">Modification date</option>
+                <option value="post_title">Title</option>
+            </param>
+            <param type="radio" label="order" translateable="1">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </param>
+        </param>
+    </params>
+</root>

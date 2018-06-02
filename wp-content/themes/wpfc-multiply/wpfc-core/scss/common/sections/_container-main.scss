@@ -1,0 +1,13 @@
+#g-container-main {
+    position: relative;
+    z-index: 1;
+    color: $container-main-color;
+    background: $container-main-background;
+    @if $container-main-background-image {
+        background-image: url($container-main-background-image);
+        background-size: unquote($container-main-background-size);
+        background-repeat: unquote($container-main-background-repeat);
+        background-position: unquote($container-main-background-position);
+        background-attachment: unquote($container-main-background-attachment);
+    }
+}

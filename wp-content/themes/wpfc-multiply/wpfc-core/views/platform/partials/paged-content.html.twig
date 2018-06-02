@@ -1,0 +1,18 @@
+{% set paged_content_edit_enabled = paged_content_edit_enabled ?? gantry.config.get('content.' ~ scope ~ '.general.edit.enabled', '') %}
+{% set paged_content_edit_label = paged_content_edit_label ?? gantry.config.get('content.' ~ scope ~ '.general.edit.label', 'Edit') %}
+{% set paged_content_edit_class = paged_content_edit_class ?? gantry.config.get('content.' ~ scope ~ '.general.edit.class', 'button small') %}
+
+{% block paged_content %}
+    <section class="entry-content">
+        {# Begin Page Content #}
+        {{ post.paged_content|raw }}
+
+        {# Paged Pagination #}
+        {% include 'platform/partials/pagination-links.html.twig' %}
+
+        {# Begin Edit Link #}
+        {% if paged_content_edit_enabled %}
+            {{ function('edit_post_link', __(paged_content_edit_label, 'wpfc-core'), '<p class="edit-link">', '</p>', '', paged_content_edit_class ) }}
+        {% endif %}
+    </section>
+{% endblock %}

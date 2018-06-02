@@ -1,0 +1,7 @@
+<root>
+    <params name="filter" label="Filter">
+        <param name="tax" label="Tax" type="number" default="0" style="width:50px;">
+            <unit value="%">%</unit>
+        </param>
+    </params>
+</root>

@@ -1,0 +1,20 @@
+name: Featured Image
+description: Options for displaying featured image
+type: sermon-archive
+
+extends@:
+  - type: archive/featured-image
+
+form:
+  fields:
+  
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Display featured image on archive type page.
+      default: 0
+    
+    link:
+      type: input.checkbox 
+      label: Link 
+      default: 1

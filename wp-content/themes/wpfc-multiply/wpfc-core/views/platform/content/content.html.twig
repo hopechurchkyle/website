@@ -1,0 +1,25 @@
+{% set twigTemplate = 'content.html.twig' %}
+
+<article class="{{ post.class }} {{ class_block }}">
+    <div class="{{ class_content }}">
+        
+        {% block content %}
+
+            {# Begin Featured Image #}
+            {% include 'platform/partials/featured-image.html.twig' %}
+
+            {# Begin Entry Inner #}
+            <div class="entry-inner">
+
+                {# Begin Entry Header #}
+                {% include 'platform/partials/entry-header.html.twig' %}
+
+                {# Begin Entry Content #}
+                {% include 'platform/partials/entry-content-pass.html.twig' %}
+
+            </div>
+
+        {% endblock %}
+        
+    </div>
+</article>

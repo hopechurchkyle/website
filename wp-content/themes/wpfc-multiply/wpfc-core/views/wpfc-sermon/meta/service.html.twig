@@ -1,0 +1,24 @@
+{% set meta_scope = 'meta-service' %}
+{% set sermon_meta_service_enabled = sermon_meta_service ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.enabled', '1')  %}
+{% set sermon_meta_service_link = sermon_meta_service_link ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.link', '1') %}
+
+{% block sermon_meta_service %}
+    {% if sermon_meta_service_enabled and post.terms('wpfc_service_type') %}
+        <div class="meta-service meta-item">
+            {% block sermon_meta_service_content %}
+                {% include 'platform/meta/icon.html.twig' %}
+                {% include 'platform/meta/prefix.html.twig' %}
+                
+                <span class="service">
+                    {% for service in post.terms('wpfc_service_type') %}
+                        {% if sermon_meta_service_link %}
+                            <a href="{{ service.link }}" title="{{ service.title }}" class="single-service">{{ service.title }}</a>
+                        {% else %}
+                            <span class="single-service">{{ service.title }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

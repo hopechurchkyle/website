@@ -1,0 +1,83 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+
+    {# Shortcuts #}
+    {% set scope = particle %}
+    {% set settings = particle.settings %}
+    {% set image = particle.image %}
+
+    {# Set Post #}
+    {% set post = wordpress.call('Timber::get_post') %}
+
+    {# Variables #}
+    {% set content = settings.style %}
+    {% set class_inner_wrapper = ' wpfc-container' %}
+    
+    {# Page Variables #}
+    {% set item_page_content_width = post.meta('wpfc_page_header_content_width') %}
+    {% set item_page_height = post.meta('wpfc_page_header_height') %}
+    {% set item_page_padding = post.meta('wpfc_page_header_padding') %}
+    {% set item_page_background = post.meta('wpfc_page_header_background') %}
+    {% set item_page_color = post.meta('wpfc_page_header_color') %}
+    {% set item_page_vertical_align = post.meta('wpfc_page_header_vertical_align') %}
+    {% set item_page_text_align = post.meta('wpfc_page_header_text_align') %}
+    {% set item_page_background_size = post.meta('wpfc_page_header_background_size') %}
+    {% set item_page_background_repeat = post.meta('wpfc_page_header_background_repeat') %}
+    {% set item_page_background_position = post.meta('wpfc_page_header_background_position') %}
+    {% set item_page_background_overlay = post.meta('wpfc_page_header_background_overlay') %}
+    
+    {##}
+    {% set item_has_height = item_page_height ?: settings.height %}
+    {% set item_has_padding = item_page_padding ?: settings.padding %}
+    {% set item_has_background = item_page_background ?: settings.background %}
+    {% set item_has_color = item_page_color ?: settings.color %}
+    {% set item_has_content_width = item_page_content_width ?: settings.content_width %}
+    
+    {% set item_has_vertical_align = item_page_vertical_align ?: settings.align_items %}
+    {% set item_has_text_align = item_page_text_align ?: settings.text_align %}
+    
+    {% set item_has_background_size = item_page_background_size ?: image.background.size %}
+    {% set item_has_background_repeat = item_page_background_repeat ?: image.background.repeat %}
+    {% set item_has_background_position = item_page_background_position ?: image.background.position %}
+    {% set item_has_background_overlay = item_page_background_overlay ?: image.overlay.enabled %}
+    
+    {# Final Variables #}
+    {% set item_height = item_has_height ? 'height:' ~ item_has_height ~ ';' : '' %}
+    {% set item_padding = item_has_padding ? 'padding:' ~ item_has_padding ~ ';' : '' %}
+    {% set item_background = item_has_background ? 'background:' ~ item_has_background ~ ';' : '' %}
+    {% set item_color = item_has_color ? 'color:' ~ item_has_color ~ ';' : '' %}
+    
+    {% set item_vertical_align = item_has_vertical_align ? 'align-items:' ~ item_has_vertical_align ~ ';' : '' %}
+    {% set item_text_align = item_has_text_align ? 'text-align:' ~ item_has_text_align ~ ';' : '' %}
+    
+    {% set item_background_size = item_has_background_size ? 'background-size:' ~ item_has_background_size ~ ';' : '' %}
+    {% set item_background_repeat = item_has_background_repeat ? 'background-repeat:' ~ item_has_background_repeat ~ ';' : '' %}
+    {% set item_background_position = item_has_background_position ? 'background-position:' ~ item_has_background_position ~ ';' : '' %}
+    {% set item_background_overlay = item_has_background_overlay ? 'background-color:' ~ item_has_background_overlay ~ ';' : '' %}
+    
+    {# Set Inline Style #}
+    {% set inner_style = item_has_content_width ? 'width:' ~ item_has_content_width ~ ';' : '' %}
+    {% set item_inline_style = [item_height, item_padding, item_background, item_color]|join('') %}
+    {% set wrapper_inline_style = [item_vertical_align, item_text_align]|join('') %}
+    
+    {# Extra #}
+    {% set item_align_class = item_has_text_align ? ' wpfc-align-' ~ item_has_text_align : '' %}
+    {% set inner_class = item_has_content_width ? ' wpfc-has-width' : '' %}
+    
+    {# Main content #}
+    {% if (function('is_page') and settings.type == 'page') or (not function('is_single') and settings.type == 'custom')  %}
+        <div class="{{ id }} wpfc-style-{{ content }}">
+            {% block particle_content %}
+                <div class="wpfc-items">
+                    {% if settings.type == 'page' %}
+                        {% include '@particles/wpfc-page-hero/views/content/content.html.twig' %}
+                    {% else %}
+                        {% include '@particles/wpfc-page-hero/views/content/content-custom.html.twig' %}
+                    {% endif %}
+                </div>
+            {% endblock %}
+        </div>
+    {% endif %}
+
+{% endblock %}

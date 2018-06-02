@@ -1,0 +1,24 @@
+{% set sermon_meta_book_enabled = sermon_meta_book_enabled ?? scope.meta.book.enabled  %}
+{% set sermon_meta_date_enabled = sermon_meta_date_enabled ?? scope.meta.date.enabled %}
+{% set sermon_meta_passage_enabled = sermon_meta_passage_enabled ?? scope.meta.passage.enabled %}
+{% set sermon_meta_preacher_enabled = sermon_meta_preacher ?? scope.meta.preacher.enabled  %}
+{% set sermon_meta_series_enabled = sermon_meta_series_enabled ?? scope.meta.series.enabled  %}
+{% set sermon_meta_service_enabled = sermon_meta_service ?? scope.meta.service.enabled  %}
+{% set sermon_meta_topics_enabled = sermon_meta_topics ?? scope.meta.topics.enabled  %}
+
+{% block entry_meta %}
+    {% if sermon_meta_book_enabled or sermon_meta_date_enabled or sermon_meta_passage_enabled or sermon_meta_preacher_enabled
+       or sermon_meta_series_enabled or sermon_meta_service_enabled or sermon_meta_topics_enabled %}
+        <div class="wpfc-entry-meta">
+            {% block entry_meta_content %}
+                {% include '@particles/wpfc-assets/wordpress/sermon/views/meta/preacher.html.twig' %}
+                {% include '@particles/wpfc-assets/wordpress/sermon/views/meta/date.html.twig' %}
+                {% include '@particles/wpfc-assets/wordpress/sermon/views/meta/series.html.twig' %}
+                {% include '@particles/wpfc-assets/wordpress/sermon/views/meta/book.html.twig' %}
+                {% include '@particles/wpfc-assets/wordpress/sermon/views/meta/service.html.twig' %}
+                {% include '@particles/wpfc-assets/wordpress/sermon/views/meta/topics.html.twig' %}
+                {% include '@particles/wpfc-assets/wordpress/sermon/views/meta/passage.html.twig' %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

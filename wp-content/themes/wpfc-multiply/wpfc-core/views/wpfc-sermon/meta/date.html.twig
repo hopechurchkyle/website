@@ -1,0 +1,21 @@
+{% set meta_scope = 'meta-date' %}
+{% set sermon_meta_date_enabled = sermon_meta_date_enabled ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.enabled', '1')  %}
+{% set sermon_meta_date_link = sermon_meta_date_link ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.link', '1') %}
+{% set sermon_meta_date_format = sermon_meta_date_format ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.format', 'F d, Y') %}
+
+{% block sermon_meta_date_enabled %}
+    {% if sermon_meta_date_enabled and post.meta('sermon_date') %}
+        <div class="meta-date meta-item">
+            {% block sermon_meta_date_content %}
+                {% include 'platform/meta/icon.html.twig' %}
+                {% include 'platform/meta/prefix.html.twig' %}
+
+                {% if sermon_meta_date_link %}
+                    <a href="{{ post.link }}" title="{{ post.title }}" class="date">{{ fn('sm_the_date', '', '', '', post.ID) }}</a>
+                {% else %}
+                    <span class="date">{{ fn('sm_the_date', '', '', '', post.ID) }}</span>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

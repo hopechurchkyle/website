@@ -1,0 +1,24 @@
+{% set meta_scope = 'meta-tags' %}
+{% set meta_tags_enabled = meta_tags_enabled ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.enabled', '1') %}
+{% set meta_tags_link = meta_tags_link ?? gantry.config.get('content.' ~ scope ~ '.' ~ meta_scope ~ '.link', '1') %}
+
+{% block meta_tags %}
+    {% if meta_tags_enabled %}
+        <div class="meta-tags meta-item">
+            {% block meta_tags_content %}
+                {% include 'platform/meta/icon.html.twig' %}
+                {% include 'platform/meta/prefix.html.twig' %}
+
+                <span class="tags">
+                    {% for tag in post.tags %}
+                        {% if meta_tags_link %}
+                            <a href="{{ tag.link }}" title="{{ tag.title }}" class="single-tag">{{ tag.title }}</a>
+                        {% else %}
+                            <span class="single-tag">{{ tag.title }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}
