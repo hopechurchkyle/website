@@ -145,17 +145,15 @@ content:
     attributes:
       css:
         class: social
+      display: both
       items:
-        -
-          icon: 'fa fa-phone'
-          text: '+512 268 7044'
-          link: ''
-          name: 'Phone Number'
         -
           icon: 'fa fa-envelope-o'
           text: info@hopechurchkyle.org
           link: ''
-          name: 'Email Address'
+          name: Email
+    block:
+      class: 'hope-hidden-tablet hope-hidden-phone'
   menu-5372:
     attributes:
       menu: main
