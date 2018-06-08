@@ -54,6 +54,7 @@ structure:
     type: section
     attributes:
       boxed: ''
+      class: content-small
   header:
     attributes:
       boxed: ''
@@ -100,6 +101,7 @@ structure:
     type: section
     attributes:
       boxed: '1'
+      class: ''
   sidebar:
     type: section
     attributes:
@@ -141,6 +143,8 @@ structure:
 content:
   social-9544:
     attributes:
+      css:
+        class: social
       items:
         -
           icon: 'fa fa-phone'
@@ -166,6 +170,9 @@ content:
         background:
           size: cover
           position: center
+  system-content-7751:
+    block:
+      class: wpfc-no-space
   wpfc-content-grid-2457:
     title: 'Content Grid'
     attributes:
